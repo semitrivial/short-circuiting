@@ -59,6 +59,11 @@ enumerate if that AGI were commanded:
 ``Enumerate, in the language $\mathscr L$, every mathematical fact which
 is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
 
+Our proposed definition is not directly intended
+for methodological purposes---it would not
+be helpful in the quest to construct an AGI. Instead, it is intended for
+theoretical purposes of understanding the properties of AGI.
+
 
 \section{Idealized AGIs}
 
@@ -69,21 +74,24 @@ we adopt ``...an idealized case of AGI, similar to
 assumptions like the frictionless plane in physics'', hoping that by
 understanding this ``simplified special
 case, we can use the understanding we've gained to address more realistic
-cases.''
-
-We make the following assumptions about an AGI $X$ (where $\mathscr L$ is some
-standard mathematical language):
+cases.'' We make the following assumptions about an AGI $X$
+(where $\mathscr L$ is some standard mathematical language):
 \begin{itemize}
   \item (Truthfulness) Whatever $\mathscr L$-statements $X$ enumerates
   when commanded to enumerate the $\mathscr L$-statements that $X$ knows,
   all such statements are true.
-  \item (Obedience) When commanded to enumerate the $\mathscr L$-statements that it knows,
-  $X$ will obey the command. In other words, $X$ will enumerate exactly the
+  \item (Obedience) When commanded to enumerate the $\mathscr L$-statements that $X$ knows,
+  $X$ will obey the command: $X$ will enumerate exactly the
   $\mathscr L$-statements that $X$ knows (according to $X$'s own internal definition
   of knowledge, whatever that may be).
 \end{itemize}
 
-These assumptions would be inappropriate for humans, who make mathematical
+Note that in our \emph{Obedience} assumption, we do not require the AGI to use
+the same definition of knowledge that we are proposing in this paper. We allow
+the AGI to have whatever definition of knowledge it likes.
+
+The \emph{Truthfulness} and \emph{Obedience} assumptions would be inappropriate
+for human agents $X$, who make mathematical
 mistakes, and who tend to hold unfounded beliefs and claim them as knowledge,
 and who might tend to resist tedious tasks such as enumerating endless lists of
 mathematical statements. But arguably these assumptions are plausible for a
@@ -96,14 +104,80 @@ problem tediously enumerating mathematical statements as long as electricity is
 available.
 
 
-
 \section{An elegant definition of mathematical knowledge}
 
-This is reminiscent of Elton's proposal that instead of trying to
-interpret an AI's outputs by focusing on specific low-level details
-of a neural network, we should instead let the AI explain itself
-\cite{elton}.
+If $X$ is an idealized AGI satisfying the assumptions of \emph{Truthfulness}
+and \emph{Obedience} from the previous section, we define the mathematical
+knowledge of $X$ as follows (where $\mathscr L$ denotes a standard mathematical
+language).
 
+\begin{definition}
+\label{maindef}
+  For any $\mathscr L$-sentence $\phi$, we say that $X$ knows $\phi$ if and only
+  if $X$ would eventually list $\phi$ amount the $\mathscr L$-statements which $X$
+  would list if $X$ were commanded:
+  ``Enumerate, in the language $\mathscr L$, every mathematical fact which
+  is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
+\end{definition}
+
+One of the strengths of Definition \ref{maindef} is that it is uniform across
+different AGIs: many different AGIs might internally operate based on different
+definitions of knowledge, but Definition \ref{maindef} works equally well for
+all these different AGIs irrespective of those different internal knowledge
+definitions\footnote{This is reminiscent of Elton's proposal that instead of
+trying to interpret an AI's outputs by focusing on specific low-level details
+of a neural network, we should instead let the AI explain itself \cite{elton}.}.
+
+\subsection{Languages including knowledge operators}
+
+In this context of AGI knowledge, we are particularly interested in languages
+which contain their own operators for knowledge. For example, the language of
+Epistemic Arithmetic \cite{shapiro} is identical to the language of Peano
+Arithmetic, except for the addition of an operator $K$ for knowledge. Whereas
+the formula $1+1=2$ is read as ``one plus one equals two'', the formula
+$K(1+1=2)$ might be read as ``I know $1+1=2$'', or ``the knower knows $1+1=2$''.
+
+Assume $X$ is an AGI and $\mathscr L$ is a standard mathematical
+language which includes a knowledge operator $K$. According to Definition
+\ref{maindef}, we consider $X$ to know $1+1=2$ precisely if $X$ would (if commanded
+to list all the $\mathscr$-statements that $X$ knows) list $1+1=2$.
+Likewise, we consider $X$ to know $K(1+1=2)$ precisely if $X$ would (if so commanded)
+include $K(1+1=2)$ in said list.
+
+Since we are offering (in Definition \ref{maindef}) a definition for knowledge
+which almost surely differs drastically from how the AGI $X$ itself defines knowledge,
+the question immediately arises as to whether the two competing definitions (ours and
+$X$'s) materially disagree: is there a mathematical fact $\phi$ such that
+Definition \ref{maindef} would claim that $X$ knows $\phi$ but such that $X$ itself
+would claim that $X$ does not know $\phi$---or vice versa? We will show that if $X$
+satisfies a certain very reasonable assumption, then the answer is ``no'': in spite
+of whatever metaphysical differences may exist between Definition \ref{maindef} and
+$X$'s own definition of knowledge, the two yield the same material results.
+
+\begin{definition}
+\label{standardway}
+  An AGI $X$ is said to \emph{interpret its own knowledge in a standard way} if
+  the following statement holds.
+  \begin{itemize}
+    \item
+    For every standard mathematical language $\mathscr L$
+    including a knowledge operator $K$, for every $\mathscr L$-sentence $\phi$,
+    if $X$ were commanded to enumerate all the $\mathscr L$-sentences that $X$
+    knows, then $X$ would include $\phi$ in that list if and only if $X$ would
+    include $K(\phi)$ in that list.
+  \end{itemize}
+\end{definition}
+
+Definition \ref{standardway} is manifestly reasonable, at least assuming $X$ satisfies
+\emph{Truthfulness} and \emph{Obedience}. Suppose $X$ is commanded to enumerate all
+the $\mathscr L$-sentences that $X$ knows. If $X$ includes $\phi$ in the resulting
+list, it evidently should be because $X$ deems $\phi$ to be among the $\mathscr L$-sentences
+that $X$ knows. In that case, apparently $X$ knows that $X$ knows $\phi$, i.e., $X$
+knows $K(\phi)$, and so $X$ should also include $K(\phi)$ in said list. Conversely,
+if $X$ includes $K(\phi)$ in said list, this evidently should be because $X$ deems
+$K(\phi)$ to be among the $\mathscr L$-sentences that $X$ knows. In that case, since
+the intended semantics of $K(\phi)$ are literally that $X$ knows $\phi$, clearly (by
+Obedience) $X$ should also include $\phi$ itself in said list.
 
 \bibliographystyle{splncs04}
 \bibliography{short}
