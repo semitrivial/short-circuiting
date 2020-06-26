@@ -13,7 +13,7 @@
 
 \begin{document}
 
-\title{Short-circuiting the definition of knowledge for an AGI
+\title{Short-circuiting the definition of mathematical knowledge for an AGI
 %\thanks{}
 }
 
@@ -39,8 +39,70 @@ Fill this in.
 It is difficult to define knowledge, or what it means to know something.
 In Plato's dialogs, again and again Socrates asks people to define
 knowledge\footnote{Perhaps the best example being in the \emph{Theaetetus}
-\cite{theaetetus}.}, and no-one ever succeeds, not even the most renowned sophists.
+\cite{theaetetus}.}, and no-one ever succeeds. Neither have philosophers
+reached consensus even in our own era (see \cite{sep-knowledge-analysis}).
 
+At the same time, the problem is often brushed aside as something only
+philosophers care about: pragmatists rarely spend time
+on this sort of debate. One exceptional area where the question becomes
+important even to pragmatists is in the area of Artificial General Intelligence
+(AGI). In AGI research, these old philosophical conundrums rear their ugly
+once more.
+
+In this paper, we narrow down the question ``what is knowledge'' and offer
+a simple answer within that narrow context:
+we propose a definition of what it means for a suitably idealized AGI to know
+a mathematical fact. Our proposed definition is short and sweet: we say that
+an AGI knows a mathematical fact (in some standard mathematical language $\mathscr L$)
+if and only if that fact would be among the statements which that AGI would
+enumerate if that AGI were commanded:
+``Enumerate, in the language $\mathscr L$, every mathematical fact which
+is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
+
+
+\section{Idealized AGIs}
+
+In this paper, we approach AGI using what
+Goertzel \cite{goertzel2014artificial} calls
+the Universalist Approach:
+we adopt ``...an idealized case of AGI, similar to
+assumptions like the frictionless plane in physics'', hoping that by
+understanding this ``simplified special
+case, we can use the understanding we've gained to address more realistic
+cases.''
+
+We make the following assumptions about an AGI $X$ (where $\mathscr L$ is some
+standard mathematical language):
+\begin{itemize}
+  \item (Truthfulness) Whatever $\mathscr L$-statements $X$ enumerates
+  when commanded to enumerate the $\mathscr L$-statements that $X$ knows,
+  all such statements are true.
+  \item (Obedience) When commanded to enumerate the $\mathscr L$-statements that it knows,
+  $X$ will obey the command. In other words, $X$ will enumerate exactly the
+  $\mathscr L$-statements that $X$ knows (according to $X$'s own internal definition
+  of knowledge, whatever that may be).
+\end{itemize}
+
+These assumptions would be inappropriate for humans, who make mathematical
+mistakes, and who tend to hold unfounded beliefs and claim them as knowledge,
+and who might tend to resist tedious tasks such as enumerating endless lists of
+mathematical statements. But arguably these assumptions are plausible for a
+sufficiently idealized AGI. Such an AGI can presumably perform calculations with
+no risk of mechanical error. Such an AGI is presumably free of the human
+psychological quirks which cause humans to cling to unfounded beliefs (especially
+since we are only considering mathematical statements, not contingent on
+the physical world). And such an AGI should have unlimited patience and have no
+problem tediously enumerating mathematical statements as long as electricity is
+available.
+
+
+
+\section{An elegant definition of mathematical knowledge}
+
+This is reminiscent of Elton's proposal that instead of trying to
+interpret an AI's outputs by focusing on specific low-level details
+of a neural network, we should instead let the AI explain itself
+\cite{elton}.
 
 
 \bibliographystyle{splncs04}
