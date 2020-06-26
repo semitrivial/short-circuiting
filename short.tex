@@ -128,56 +128,73 @@ definitions\footnote{This is reminiscent of Elton's proposal that instead of
 trying to interpret an AI's outputs by focusing on specific low-level details
 of a neural network, we should instead let the AI explain itself \cite{elton}.}.
 
-\subsection{Languages including knowledge operators}
+Although Definition \ref{maindef} may differ significantly from a particular AGI
+$X$'s own internal definition of knowledge, the following theorem states that
+materially the two definitions have the same result.
 
-In this context of AGI knowledge, we are particularly interested in languages
-which contain their own operators for knowledge. For example, the language of
-Epistemic Arithmetic \cite{shapiro} is identical to the language of Peano
-Arithmetic, except for the addition of an operator $K$ for knowledge. Whereas
-the formula $1+1=2$ is read as ``one plus one equals two'', the formula
-$K(1+1=2)$ might be read as ``I know $1+1=2$'', or ``the knower knows $1+1=2$''.
+\begin{theorem}
+\label{sentenceequivalence}
+  Suppose $X$ is an AGI satisfying Truthfulness and Obedience, and let $\mathscr L$
+  be a standard mathematical language. For any $\mathscr L$-sentence $\phi$, the following
+  are equivalent:
+  \begin{enumerate}
+    \item $X$ is
+    considered to know $\phi$ (based on Definition \ref{maindef}).
+    \item
+    $X$ is considered to know $\phi$ (based on $X$'s own inernal definition of
+    knowledge).
+  \end{enumerate}
+\end{theorem}
 
-Assume $X$ is an AGI and $\mathscr L$ is a standard mathematical
-language which includes a knowledge operator $K$. According to Definition
-\ref{maindef}, we consider $X$ to know $1+1=2$ precisely if $X$ would (if commanded
-to list all the $\mathscr L$-statements that $X$ knows) list $1+1=2$.
-Likewise, we consider $X$ to know $K(1+1=2)$ precisely if $X$ would (if so commanded)
-include $K(1+1=2)$ in said list.
+\begin{proof}
+  By Definition \ref{maindef}, (1) is equivalent to the statement that $X$ would
+  include $\phi$ in the list which $X$ would output if $X$ were commanded to output
+  all the $\mathscr L$-sentences that $X$ knows. By Obedience, $X$ would output
+  $\phi$ in that list if and only if (2).
+\end{proof}
 
-Since we are offering (in Definition \ref{maindef}) a definition for knowledge
-which almost surely differs drastically from how the AGI $X$ itself defines knowledge,
-the question immediately arises as to whether the two competing definitions (ours and
-$X$'s) materially disagree: is there a mathematical fact $\phi$ such that
-Definition \ref{maindef} would claim that $X$ knows $\phi$ but such that $X$ itself
-would claim that $X$ does not know $\phi$---or vice versa? We will show that if $X$
-satisfies a certain very reasonable assumption, then the answer is ``no'': in spite
-of whatever metaphysical differences may exist between Definition \ref{maindef} and
-$X$'s own definition of knowledge, the two yield the same material results.
+In the next subsection we will strengthen Theorem \ref{sentenceequivalence} by
+considering it through the lens of quantified modal logic.
+
+\subsection{Quantified modal logic}
+
+In order to strengthen Theorem \ref{sentenceequivalence}, we would like to work
+in quantified modal logic. We begin with some standard definitions.
+
+(Fill this in)
 
 \begin{definition}
-\label{standardway}
-  An AGI $X$ is said to \emph{interpret its own knowledge in a standard way} if
-  the following statement holds.
+  Suppose $\mathscr L_0$ is a standard first-order mathematical language
+  extending PA,
+  and let $\mathscr L$ consist
+  of $\mathscr L_0$ together with a knowledge operator $K$. Suppose
+  $\mathscr M_0$
+  is an $\mathscr L_0$-model with standard first-order part.
+  We define two extensions of
+  $\mathscr M_0$ to $\mathscr L$ as follows.
   \begin{itemize}
     \item
-    For every standard mathematical language $\mathscr L$
-    including a knowledge operator $K$, for every $\mathscr L$-sentence $\phi$,
-    if $X$ were commanded to enumerate all the $\mathscr L$-sentences that $X$
-    knows, then $X$ would include $\phi$ in that list if and only if $X$ would
-    include $K(\phi)$ in that list.
+    (The External Extension)
+    Let $\mathscr M^{ext}$ be the $\mathscr L$-model with universe $\mathbb N$,
+    agreeing with $\mathscr M_0$ on $\mathscr L_0$, and interpreting $K$ as follows.
+    For any $\mathscr L_0$-formula $\phi$ and assignment $s$,
+    $\mathscr M^{ext}\models K(\phi)[s]$ if and only if
+    $X$ knows $\phi^s$ (according to Definition \ref{maindef}).
+    \item
+    (The Internal Extension)
+    Let $\mathscr M^{int}$ be the $\mathscr L$-model with universe $\mathbb N$,
+    agreeing with $\mathscr M_0$ on $\mathscr L_0$, and interpreting $K$ as follows.
+    For any $\mathscr L_0$-formula $\phi$ and assignment $s$,
+    $\mathscr M^{int}\models K(\phi)[s]$ if and only if
+    $X$ knows $\phi^s$ (according to $X$'s internal definition of knowledge).
   \end{itemize}
 \end{definition}
 
-Definition \ref{standardway} is manifestly reasonable, at least assuming $X$ satisfies
-\emph{Truthfulness} and \emph{Obedience}. Suppose $X$ is commanded to enumerate all
-the $\mathscr L$-sentences that $X$ knows. If $X$ includes $\phi$ in the resulting
-list, it evidently should be because $X$ deems $\phi$ to be among the $\mathscr L$-sentences
-that $X$ knows. In that case, apparently $X$ knows that $X$ knows $\phi$, i.e., $X$
-knows $K(\phi)$, and so $X$ should also include $K(\phi)$ in said list. Conversely,
-if $X$ includes $K(\phi)$ in said list, this evidently should be because $X$ deems
-$K(\phi)$ to be among the $\mathscr L$-sentences that $X$ knows. In that case, since
-the intended semantics of $K(\phi)$ are literally that $X$ knows $\phi$, clearly (by
-Obedience) $X$ should also include $\phi$ itself in said list.
+
+\begin{theorem}
+  For any $\mathscr L_0$, $\mathscr L$, $\mathscr M_0$ as in Definition
+  \ref{internalexternal}, $\mathscr M^{ext}=\mathscr M^{int}$.
+\end{theorem}
 
 \bibliographystyle{splncs04}
 \bibliography{short}
