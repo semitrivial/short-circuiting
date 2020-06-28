@@ -52,20 +52,40 @@ once more.
 In this paper, we narrow down the question ``what is knowledge'' and offer
 a simple answer within that narrow context:
 we propose a definition of what it means for a suitably idealized AGI to know
-a mathematical fact. Our proposed definition is short and sweet: we say that
-an AGI knows a mathematical fact (in some standard mathematical language $\mathscr L$)
-if and only if that fact would be among the statements which that AGI would
+a mathematical sentence\footnote{By a \emph{sentence}, we mean a formula with
+no free variables. Thus, $x^2>0$ is not a sentence, but
+$\forall x (x^2>0)$.}. Our proposed definition is short and
+sweet: we say that
+an AGI knows a mathematical sentence (in some standard mathematical language $\mathscr L$)
+if and only if that sentence would be among the sentences which that AGI would
 enumerate if that AGI were commanded:
-``Enumerate, in the language $\mathscr L$, every mathematical fact which
+``Enumerate, in the language $\mathscr L$, every mathematical sentence which
 is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
 
 Our proposed definition is not directly intended
 for methodological purposes---it would not
-be helpful in the quest to construct an AGI. Instead, it is intended for
-theoretical purposes of understanding the properties of AGI.
+directly be helpful in the quest to construct an AGI. Instead, it is intended for
+theoretical purposes of understanding the properties of AGI (some of which
+we survey in Section \ref{appsection}). We hope that a better
+understanding of theoretical properties of AGIs will indirectly help in the eventual
+creation of same.
 
+The structure of this paper is as follows.
+\begin{itemize}
+  \item In Section \ref{agisection} we discuss the AGIs whose knowledge we are
+  attempting to propose a definition for.
+  \item In Section \ref{mainsection} we propose a knowledge definition for
+  AGIs for sentences in some standard mathematical language.
+  \item In Section \ref{quantifiedsection} we extend our knowledge definition
+  to formulas with free variables (when the intended interpretation for the
+  language in question is arithmetical).
+  \item In Section \ref{appsection} we survey some of the applications of
+  this proposed knowledge definition.
+  \item In Section \ref{conclusionsection} we summarize and make concluding remarks.
+\end{itemize}
 
 \section{Idealized AGIs}
+\label{agisection}
 
 In this paper, we approach AGI using what
 Goertzel \cite{goertzel2014artificial} calls
@@ -77,12 +97,12 @@ case, we can use the understanding we've gained to address more realistic
 cases.'' We make the following assumptions about an AGI $X$
 (where $\mathscr L$ is some standard mathematical language):
 \begin{itemize}
-  \item (Truthfulness) Whatever $\mathscr L$-statements $X$ enumerates
-  when commanded to enumerate the $\mathscr L$-statements that $X$ knows,
-  all such statements are true.
-  \item (Obedience) When commanded to enumerate the $\mathscr L$-statements that $X$ knows,
+  \item (Truthfulness) Whatever $\mathscr L$-sentences $X$ enumerates
+  when commanded to enumerate the $\mathscr L$-sentences that $X$ knows,
+  all such sentences are true.
+  \item (Obedience) When commanded to enumerate the $\mathscr L$-sentences that $X$ knows,
   $X$ will obey the command: $X$ will enumerate exactly the
-  $\mathscr L$-statements that $X$ knows (according to $X$'s own internal definition
+  $\mathscr L$-sentences that $X$ knows (according to $X$'s own internal definition
   of knowledge, whatever that may be).
 \end{itemize}
 
@@ -94,29 +114,31 @@ The \emph{Truthfulness} and \emph{Obedience} assumptions would be inappropriate
 for human agents $X$, who make mathematical
 mistakes, and who tend to hold unfounded beliefs and claim them as knowledge,
 and who might tend to resist tedious tasks such as enumerating endless lists of
-mathematical statements. But arguably these assumptions are plausible for a
+mathematical sentences. But arguably these assumptions are plausible for a
 sufficiently idealized AGI. Such an AGI can presumably perform calculations with
 no risk of mechanical error. Such an AGI is presumably free of the human
 psychological quirks which cause humans to cling to unfounded beliefs (especially
 since we are only considering mathematical statements, not contingent on
 the physical world). And such an AGI should have unlimited patience and have no
-problem tediously enumerating mathematical statements as long as electricity is
-available.
+problem tediously enumerating mathematical sentences as long as memory-banks
+and electricity are available.
 
 
 \section{An elegant definition of mathematical knowledge}
+\label{mainsection}
 
 If $X$ is an idealized AGI satisfying the assumptions of \emph{Truthfulness}
 and \emph{Obedience} from the previous section, we define the mathematical
-knowledge of $X$ as follows (where $\mathscr L$ denotes a standard mathematical
+knowledge of $X$ (as far as sentences go)
+as follows (where $\mathscr L$ denotes a standard mathematical
 language).
 
 \begin{definition}
 \label{maindef}
   For any $\mathscr L$-sentence $\phi$, we say that $X$ knows $\phi$ if and only
-  if $X$ would eventually list $\phi$ amount the $\mathscr L$-statements which $X$
+  if $X$ would eventually list $\phi$ among the $\mathscr L$-sentences which $X$
   would list if $X$ were commanded:
-  ``Enumerate, in the language $\mathscr L$, every mathematical fact which
+  ``Enumerate, in the language $\mathscr L$, every mathematical sentence which
   is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
 \end{definition}
 
@@ -153,48 +175,15 @@ materially the two definitions have the same result.
   $\phi$ in that list if and only if (2).
 \end{proof}
 
-In the next subsection we will strengthen Theorem \ref{sentenceequivalence} by
-considering it through the lens of quantified modal logic.
 
-\subsection{Quantified modal logic}
+\section{Quantified Modal Logic}
+\label{quantifiedsection}
 
-In order to strengthen Theorem \ref{sentenceequivalence}, we would like to work
-in quantified modal logic. We begin with some standard definitions.
+\section{Applications}
+\label{appsection}
 
-(Fill this in)
-
-\begin{definition}
-  Suppose $\mathscr L_0$ is a standard first-order mathematical language
-  extending PA,
-  and let $\mathscr L$ consist
-  of $\mathscr L_0$ together with a knowledge operator $K$. Suppose
-  $\mathscr M_0$
-  is an $\mathscr L_0$-model with standard first-order part.
-  We define two extensions of
-  $\mathscr M_0$ to $\mathscr L$ as follows.
-  \begin{itemize}
-    \item
-    (The External Extension)
-    Let $\mathscr M^{ext}$ be the $\mathscr L$-model with universe $\mathbb N$,
-    agreeing with $\mathscr M_0$ on $\mathscr L_0$, and interpreting $K$ as follows.
-    For any $\mathscr L_0$-formula $\phi$ and assignment $s$,
-    $\mathscr M^{ext}\models K(\phi)[s]$ if and only if
-    $X$ knows $\phi^s$ (according to Definition \ref{maindef}).
-    \item
-    (The Internal Extension)
-    Let $\mathscr M^{int}$ be the $\mathscr L$-model with universe $\mathbb N$,
-    agreeing with $\mathscr M_0$ on $\mathscr L_0$, and interpreting $K$ as follows.
-    For any $\mathscr L_0$-formula $\phi$ and assignment $s$,
-    $\mathscr M^{int}\models K(\phi)[s]$ if and only if
-    $X$ knows $\phi^s$ (according to $X$'s internal definition of knowledge).
-  \end{itemize}
-\end{definition}
-
-
-\begin{theorem}
-  For any $\mathscr L_0$, $\mathscr L$, $\mathscr M_0$ as in Definition
-  \ref{internalexternal}, $\mathscr M^{ext}=\mathscr M^{int}$.
-\end{theorem}
+\section{Conclusion}
+\label{conclusionsection}
 
 \bibliographystyle{splncs04}
 \bibliography{short}
