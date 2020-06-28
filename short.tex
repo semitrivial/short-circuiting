@@ -87,6 +87,8 @@ The structure of this paper is as follows.
 \section{Idealized AGIs}
 \label{agisection}
 
+
+
 In this paper, we approach AGI using what
 Goertzel \cite{goertzel2014artificial} calls
 the Universalist Approach:
@@ -94,8 +96,26 @@ we adopt ``...an idealized case of AGI, similar to
 assumptions like the frictionless plane in physics'', hoping that by
 understanding this ``simplified special
 case, we can use the understanding we've gained to address more realistic
-cases.'' We make the following assumptions about an AGI $X$
-(where $\mathscr L$ is some standard mathematical language):
+cases.'' We assume the AGI is designed in such a way as to be obey arbitrary
+English commands, and is capable (if so commanded) of outputting data in
+any desired format, provided that format can be expressed (say) as a computer
+file or as a string of unicode characters. Below, we will state some additional
+idealized assumptions, but first we will need a preliminary definition.
+
+\begin{definition}
+By a \emph{standard mathematical language}, we mean a mathematical language for which an
+intended interpretation is implicitly understood.
+\end{definition}
+
+For example, the
+langauge of Peano Arithmetic is a standard mathemtical language, the obvious
+intended interpretation being the model with universe $\mathbb N$ which
+interprets the arithmetical symbols of Peano Arithmetic in the usual ways.
+Presumably an AGI suitably familiar with the mathematical literature should
+be aware of this intended interpretation for Peano Arithmetic.
+
+We make the following assumptions about an AGI $X$
+(where $\mathscr L$ is a standard mathematical language):
 \begin{itemize}
   \item (Truthfulness) Whatever $\mathscr L$-sentences $X$ enumerates
   when commanded to enumerate the $\mathscr L$-sentences that $X$ knows,
@@ -175,6 +195,16 @@ materially the two definitions have the same result.
   $\phi$ in that list if and only if (2).
 \end{proof}
 
+\subsection{Languages with Knowledge Operators}
+
+Definition \ref{maindef} is particularly interesting when $\mathscr L$ itself
+contains an operator for the agent's knowledge. An example of such a language would be
+the language of Epistemic Arithmetic from \cite{shapiro}, which consists of the
+language of Peano Arithmetic with the addition of an operator $K$ for knowledge:
+$K(1+1=2)$ should be read as something like
+``I know $1+1=2$'' or ``the knower knows $1+1=2$''. In the context of this paper,
+if $\mathscr L_0$ is a standard mathematical language (by which we mean a mathematical
+language with an )
 
 \section{Quantified Modal Logic}
 \label{quantifiedsection}
