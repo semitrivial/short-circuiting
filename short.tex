@@ -436,8 +436,40 @@ Turing machine it is. See also the discussion in \cite{aldini2015theory}.
 
 \subsection{Formalizations of Church's Thesis}
 
-\cite{flagg1985church}
-\cite{carlson2016collapsing}
+Church's Thesis is generally understood as an informal statement that cannot
+be formally proven (similar to a physical law of nature).
+But in the language of Epistemic Arithmetic, it can be formalized into an
+axiom which may or may not hold for particular knowing agents. This formalization
+is called the Epistemic Church's Thesis. Written in the language of Epistemic
+Arithmetic, it takes the form
+\[
+  K( ( \forall x\exists y (K(\phi))  ) \rightarrow
+  ( \exists e K( \forall x\exists y ( E(e,x,y) \wedge \phi  )  )  )  )
+\]
+where $E(e,x,y)$ is a formula stating that the $e$th Turing machine
+halts on input $x$ with output $y$.
+Thus, in English, for an AGI $X$,
+the Epistemic Church's Thesis can be glossed as follows:
+\begin{itemize}
+  \item
+  $X$ knows the following: if, for every $m$, there is some $n$ such that
+  $X$ knows $\phi(x|\overline m)(y|overline n)$, then there exists some
+  Turing machine $e$ such that $X$ knows the following:
+  for every $m$, if $m$ is input into $e$, then $e$ will output
+  some $n$ such that $\phi(x|\overline m)(y|overline n)$.
+\end{itemize}
+Or to put it much more simply:
+\begin{itemize}
+  \item
+  $X$ knows the following: if for every $m$ there is some $n$ such that
+  $X$ knows $\phi(x|\overline m)(y|overline n)$, then $X$ knows a Turing
+  machine which outputs such an $n$ for every input $m$.
+\end{itemize}
+Flagg showed \cite{flagg1985church} that the Epistemic Church's Thesis is
+consistent with basic assumptions of knowledge. Carlson strengthened this
+result and showed \cite{carlson2016collapsing} that the Epistemic Church's
+Thesis and Reinhardt's strong mechanistic thesis are simultaneously
+co-consistent with basic assumptions of knowledge.
 
 \subsection{Knowledge-based measures of intelligence}
 
