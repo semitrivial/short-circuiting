@@ -225,6 +225,93 @@ output $K(1+1=2)$ if and only if $X$ knows that he knows $1+1=2$.
 \section{Quantified Modal Logic}
 \label{quantifiedsection}
 
+Definition \ref{maindef} only addresses sentences with no free variables.
+For suitable languages, we will extend this to formulas which possibly include
+free variables. Here, we are essentially adapting a trick which is due to
+Carlson \cite{carlson}.
+
+\begin{definition}
+  A standard mathematical language $\mathscr L$ is said to be \emph{arithmetical}
+  if the following requirements hold.
+  \begin{enumerate}
+    \item $\mathscr L$ contains all the symbols of Peano Arithmetic.
+    \item $\mathscr L$'s intended model has universe $\mathbb N$ and interprets
+    the symbols of Peano Arithmetic in the usual ways.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  If $\mathscr L$ is arithmetical, then we define so-called \emph{numerals}, which
+  are $\mathscr L$-terms, one numeral $\overline n$ for each natural number $n\in\mathbb N$,
+  by induction: $\overline 0$ is defined to be $0$ (the constant symbol for zero from
+  Peano Arithmetic) and
+  for every $n\in\mathbb N$, $\overline{n+1}$ is defined to be $S(\overline n)$
+  (where $S$ is the successor symbol from Peano Arithmetic).
+\end{definition}
+
+For example, the numeral $\overline 5$ is the term $S(S(S(S(S(0)))))$.
+
+\begin{definition}
+  If $\mathscr L$ is arithmetical and $\phi$ is an $\mathscr L$-formula (with free variables
+  $x_1,\ldots,x_k$),
+  and if $s$ is an assignment mapping variables to natural numbers, then we define $\phi^s$
+  to be the sentence
+  \[
+    \phi(x_1|\overline{s(x_1)})(x_2|\overline{s(x_2)})\cdots (x_k|\overline{s(x_k)})
+  \]
+  obtained by substituting for each variable $x_i$ the numeral $\overline s(x_i)$
+  for $x_i$'s value according to $s$.
+\end{definition}
+
+\begin{example}
+  Suppose $s(x)=0$, $s(y)=1$, and $s(z)=3$. Then
+  \[
+  ((z>y+x) \wedge \forall x(K(z>y+x-x)))^s
+  \]
+  is defined to be
+  \[
+  ((\overline 3 > \overline 1+\overline 0)
+  \wedge \forall x( K( \overline 3 > \overline 1 + x - x ) ))
+  \]
+  (note that the numeral is not substituted for the later occurrences of $x$ because
+  these are bound by the $\forall x$ quantifier).
+\end{example}
+
+\begin{definition}
+\label{maindefextension}
+  If $\mathscr L$ is arithmetical, $\phi$ is any $\mathscr L$-formula,
+  and $s$ is any assignment mapping variables to $\mathbb N$,
+  we say that $X$ knows $\phi$ (according to $s$) if and only,
+  $X$ knows $\phi^s$ according to Definition \ref{maindef}.
+\end{definition}
+
+Armed with Definition \ref{maindefextension}, the Tarskian notion of
+truth can be extended to a complete semantics for
+knowledge in any arithmetical language with exactly one knowledge operator $K$.
+
+\begin{example}
+  Assume an AGI $X$ is clear from context.
+  Suppose $\phi$ is a formula of one free variable $x$, in the language of Epistemic Arithmetic,
+  which expresses ``the $x$th Turing machine eventually halts''. Suppose we want to
+  assign a truth value to the formula $\exists x (\neg K(\phi))$.
+  \begin{itemize}
+  \item Following Tarski, we should declare $\exists x (\neg K(\phi))$
+  is true if and only if there is some assignment $s$ mapping variables to $\mathbb N$
+  such that $K(\phi)$ is false according to $s$.
+  \item By Definition \ref{maindefextension}, this is the case if and only if
+  there is some $s$ such that
+  $X$ does not know $\phi^s$ (according to Definition \ref{maindef}).
+  \item
+  This is the case if and only if there is some $s$ such that $X$ would not
+  list $\phi^s$ if $X$ were commanded
+  to enumerate his own knowledge in the language of Epistemic Arithmetic.
+  \item
+  Since $\phi$ has just one free variable $x$, it follows that the above is equivalent to:
+  there is some $n\in\mathbb N$ such that $X$ would not list $\phi(x|\overline n)$
+  if $X$ were commanded as above.
+  \end{itemize}
+\end{example}
+
 \section{Applications}
 \label{appsection}
 
