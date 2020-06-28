@@ -103,23 +103,25 @@ file or as a string of unicode characters. Below, we will state some additional
 idealized assumptions, but first we will need a preliminary definition.
 
 \begin{definition}
+\label{stdmathematicallanguagedefn}
 By a \emph{standard mathematical language}, we mean a mathematical language for which an
 intended interpretation is implicitly understood.
 \end{definition}
 
 For example, the
-langauge of Peano Arithmetic is a standard mathemtical language, the obvious
+langauge of Peano Arithmetic is a standard mathematical language, the obvious
 intended interpretation being the model with universe $\mathbb N$ which
 interprets the arithmetical symbols of Peano Arithmetic in the usual ways.
 Presumably an AGI suitably familiar with the mathematical literature should
 be aware of this intended interpretation for Peano Arithmetic.
 
-We make the following assumptions about an AGI $X$
-(where $\mathscr L$ is a standard mathematical language):
+Armed with Definition \ref{stdmathematicallanguagedefn}, we are ready to articulate
+two additional assumptions which we make about an AGI $X$
+(here $\mathscr L$ is a standard mathematical language):
 \begin{itemize}
   \item (Truthfulness) Whatever $\mathscr L$-sentences $X$ enumerates
   when commanded to enumerate the $\mathscr L$-sentences that $X$ knows,
-  all such sentences are true.
+  all such sentences are true (in the intended model).
   \item (Obedience) When commanded to enumerate the $\mathscr L$-sentences that $X$ knows,
   $X$ will obey the command: $X$ will enumerate exactly the
   $\mathscr L$-sentences that $X$ knows (according to $X$'s own internal definition
@@ -203,8 +205,22 @@ the language of Epistemic Arithmetic from \cite{shapiro}, which consists of the
 language of Peano Arithmetic with the addition of an operator $K$ for knowledge:
 $K(1+1=2)$ should be read as something like
 ``I know $1+1=2$'' or ``the knower knows $1+1=2$''. In the context of this paper,
-if $\mathscr L_0$ is a standard mathematical language (by which we mean a mathematical
-language with an )
+if $\mathscr L_0$ is a standard mathematical language, and if $\mathscr L$ is obtained
+from $\mathscr L_0$ by the addition of a knowledge operator $K$, then we also
+consider $\mathscr L$ to be a standard mathematical language. The intended model
+of $\mathscr L$ shall have the same universe and interpretation of
+$\mathscr L_0$-symbols as the intended model of $\mathscr L_0$. As for $K$,
+the intended interpretation (by an AGI $X$) of a formula $K(\phi)$ shall be
+that $X$ knows $\phi$ (according to the AGI's internal definition of knowledge).
+
+\begin{example}
+Applying Definition \ref{maindef} to the language of Epistemic Arithmetic,
+we consider an AGI $X$ to know $K(1+1=2)$ if and only if that AGI would output
+$K(1+1=2)$ when commanded to output all sentences that $X$ knows in the language of
+Epistemic Arithmetic. By the Obedience assumption and the intended interpretation of
+Epistemic Arithmetic, $X$ would (when so commanded)
+output $K(1+1=2)$ if and only if $X$ knows that he knows $1+1=2$.
+\end{example}
 
 \section{Quantified Modal Logic}
 \label{quantifiedsection}
