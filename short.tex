@@ -111,7 +111,7 @@ we adopt ``...an idealized case of AGI, similar to
 assumptions like the frictionless plane in physics'', hoping that by
 understanding this ``simplified special
 case, we can use the understanding we've gained to address more realistic
-cases.'' We assume the AGI is designed in such a way as to obey arbitrary
+cases.'' We assume the AGI is designed in such a way as to understand
 English commands, and is capable (if so commanded) of outputting data in
 any desired format, provided that format can be expressed (say) as a computer
 file or as a string of unicode characters. Below, we will state some additional
@@ -168,7 +168,8 @@ language).
 
 \begin{definition}
 \label{maindef}
-  For any $\mathscr L$-sentence $\phi$, we say that $X$ knows $\phi$ if and only
+  For any $\mathscr L$-sentence $\phi$, we say that an
+  obedient AGI $X$ knows $\phi$ if and only
   if $X$ would eventually list $\phi$ among the $\mathscr L$-sentences which $X$
   would list if $X$ were commanded:
   ``Enumerate, in the language $\mathscr L$, every mathematical sentence which
@@ -212,7 +213,7 @@ materially the two definitions have the same result.
 
 Definition \ref{maindef} is particularly interesting when $\mathscr L$ itself
 contains an operator for the agent's knowledge. An example of such a language would be
-the language of Epistemic Arithmetic from \cite{shapiro}, which consists of the
+the language of Epistemic Arithmetic (or EA) from \cite{shapiro}, which consists of the
 language of Peano Arithmetic with the addition of an operator $K$ for knowledge:
 $K(1+1=2)$ should be read as something like
 ``I know $1+1=2$'' or ``the knower knows $1+1=2$''. In the context of this paper,
@@ -225,11 +226,11 @@ the intended interpretation (by an AGI $X$) of a formula $K(\phi)$ shall be
 that $X$ knows $\phi$ (according to the AGI's internal definition of knowledge).
 
 \begin{example}
-Applying Definition \ref{maindef} to the language of Epistemic Arithmetic,
+Applying Definition \ref{maindef} to the language of EA,
 we consider an obedient AGI $X$ to know $K(1+1=2)$ if and only if that AGI would output
 $K(1+1=2)$ when commanded to output all sentences that $X$ knows in the language of
-Epistemic Arithmetic. By the intended interpretation of
-Epistemic Arithmetic, $X$ would (when so commanded)
+EA. By the intended interpretation of
+EA, $X$ would (when so commanded)
 output $K(1+1=2)$ if and only if $X$ knows that he knows $1+1=2$.
 \end{example}
 
@@ -238,7 +239,7 @@ output $K(1+1=2)$ if and only if $X$ knows that he knows $1+1=2$.
 
 Definition \ref{maindef} only addresses sentences with no free variables.
 For suitable languages, we will extend this to formulas which possibly include
-free variables. Here, we are essentially adapting a trick which is due to
+free variables. Here, we are essentially adapting a trick from
 Carlson \cite{carlson}.
 
 \begin{definition}
@@ -270,7 +271,7 @@ For example, the numeral $\overline 5$ is the term $S(S(S(S(S(0)))))$.
   \[
     \phi(x_1|\overline{s(x_1)})(x_2|\overline{s(x_2)})\cdots (x_k|\overline{s(x_k)})
   \]
-  obtained by substituting for each variable $x_i$ the numeral $\overline{s(x_i)}$
+  obtained by substituting for each free variable $x_i$ the numeral $\overline{s(x_i)}$
   for $x_i$'s value according to $s$.
 \end{definition}
 
@@ -292,7 +293,7 @@ For example, the numeral $\overline 5$ is the term $S(S(S(S(S(0)))))$.
 \label{maindefextension}
   If $\mathscr L$ is arithmetical, $\phi$ is any $\mathscr L$-formula,
   and $s$ is any assignment mapping variables to $\mathbb N$,
-  we say that $X$ knows $\phi$ (according to $s$) if and only if,
+  we say that $X$ knows $\phi$ (according to $s$) if and only if
   $X$ knows $\phi^s$ according to Definition \ref{maindef}.
 \end{definition}
 
@@ -302,214 +303,116 @@ truth can be extended to a complete semantics for
 knowledge in any arithmetical language with exactly one knowledge operator $K$.
 
 \begin{example}
-  Assume an AGI $X$ is clear from context.
-  Suppose $\phi$ is a formula of one free variable $x$, in the language of Epistemic Arithmetic,
+  Assume an obedient AGI $X$ is clear from context.
+  Suppose $\phi$ is a formula of one free variable $x$, in the language of EA,
   which expresses ``the $x$th Turing machine eventually halts''. Suppose we want to
-  assign a truth value to the formula $\exists x (\neg K(\phi))$.
+  assign a truth value to the formula $\exists x (\neg K(\phi)\wedge \neg K(\neg\phi))$.
   \begin{itemize}
-  \item Following Tarski, we should declare $\exists x (\neg K(\phi))$
+  \item Following Tarski, we should declare $\exists x (\neg K(\phi)\wedge\neg K(\neg \phi))$
   is true if and only if there is some assignment $s$ mapping variables to $\mathbb N$
-  such that $K(\phi)$ is false according to $s$.
+  such that both $K(\phi)$ and $K(\neg\phi)$ are false according to $s$.
   \item By Definition \ref{maindefextension}, this is the case if and only if
   there is some $s$ such that
-  $X$ does not know $\phi^s$ (according to Definition \ref{maindef}).
+  $X$ does not know $\phi^s$ and $X$ does not know $\neg\phi^s$
+  (according to Definition \ref{maindef}).
   \item
   This is the case if and only if there is some $s$ such that $X$ would not
-  list $\phi^s$ if $X$ were commanded
-  to enumerate his own knowledge in the language of Epistemic Arithmetic.
+  list $\phi^s$ nor $\neg\phi^s$ if $X$ were commanded
+  to enumerate his own knowledge in the language of EA.
   \item
   Since $\phi$ has just one free variable $x$, it follows that the above is equivalent to:
   there is some $n\in\mathbb N$ such that $X$ would not list $\phi(x|\overline n)$
+  nor $\neg\phi(x|\overline n)$
   if $X$ were commanded as above.
   \end{itemize}
 \end{example}
 
-\section{Applications}
-\label{appsection}
+\section{Knowledge axioms}
 
-In this section, we survey some results from mathematical logic about the nature
-of AGI knowledge. In the literature, these are usually phrased in terms of
-formal logical theories: for the purpose of proving things about agent knowledge,
-knowing agents are identified with their own knowledge-sets,
-with something like Definitions \ref{maindef} and \ref{maindefextension} understood
-implicitly.
-
-Here we will briefly and informally summarize some of these mathematical
-logical results, glossing them in English in terms of an AGI; for full details,
-the reader should read the indicated references. Definitions \ref{maindef}
-and \ref{maindefextension} serve as the dictionary which enables these mathematical
-logical results to be understood in an AGI context.
+In this section, we will look at some axioms of knowledge and interpret them in the
+context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
 
 \begin{example}
-If the reader
-reads one of the below references, they might see that the author in question
-assumes that knowledge satisfies an axiom schema such as
-\[K(\phi\rightarrow\psi)\rightarrow K(\phi)\rightarrow K(\psi).\]
-Interpreting this schema using Definition \ref{maindef}, it becomes the following
-assumption about AGI $X$ in a relevant language $\mathscr L$:
-\begin{itemize}
-  \item
-  If, when commanded to enumerate all the $\mathscr L$-sentences that he knows,
-  $X$ would include $\phi\rightarrow\psi$ in the resulting list, and would also
-  include $\phi$ in the resulting list, then $X$ would also include $\psi$ in
-  the resulting list.
-\end{itemize}
-The reader can readily judge the plausibility of this assumption: it is very plausible,
-since an AGI should certainly be capable of basic logical reasoning.
-\end{example}
-
-\begin{example}
-  If one of the below references assumes that knowledge satisfies an axiom schema
-  such as
-  \[
-    K(\phi)\rightarrow K(K(\phi)),
-  \]
-  then, interpreting this schema using Definition \ref{maindef}, it becomes
-  the following assumption about AGI $X$ in a relevant language $\mathscr L$:
+  (Basic axioms of knowledge) The following axiom schemas, in the language
+  of EA, are taken from Carlson \cite{carlson}
+  (we restrict them to sentences for purposes of simplicity).
   \begin{itemize}
-    \item
-    If, when commanded to enumerate all the $\mathscr L$-sentences that he knows,
-    $X$ would include $\phi$ in the resulting list, then $X$ would also include
-    $K(\phi)$ in the resulting list.
+    \item (E1) $K(\phi)$ whenever $\phi$ is valid (i.e., a tautology).
+    Interpreted for an AGI $X$ using Definition \ref{maindef}, this becomes:
+    ``If commanded to enumerate his knowledge in EA, $X$ will include
+    all that language's tautologies in the resulting list.'' This is plausible
+    because the set of tautologies in a given computable language is computable,
+    and an AGI should have no problem enumerating them.
+    \item (E2) $K(\phi\rightarrow\psi)\rightarrow K(\phi)\rightarrow K(\psi)$.
+    This becomes: ``If commanded to enumerate his knowledge in EA,
+    if $X$ would include $\phi\rightarrow\psi$ and if $X$ would also include
+    $\phi$, then $X$ would also include $\psi$.'' This is plausible because
+    an AGI should certainly be capable of basic logical reasoning.
+    \item (E3) $K(\phi)\rightarrow\phi$. This becomes: ``If commanded to enumerate
+    his knowledge in EA, the resulting statements $X$ enumerates
+    will be true.'' This is plausible since knowledge is widely regarded as
+    having truthfulness as one of its requirements. Truthfulness is not a
+    requirement in the definition proposed in this paper, but for any particular
+    AGI, truthfulness is probably a requirement of that AGI's internal definition
+    of knowledge. There is no need to worry about the AGI being misinformed about
+    contingent facts about the physical world, because EA is a purely mathematical
+    language in which no such contingent facts are expressible.
+    \item (E4) $K(\phi)\rightarrow K(K(\phi))$. This becomes: ``If commanded to
+    enumerate his knowledge in EA, if $X$ would list $\phi$,
+    then $X$ would also list $K(\phi)$.'' This is plausible because presumably
+    when $X$ enumerates $\phi$ in response to the command, $X$ should in some sense
+    understand why he is enumerating $\phi$, namely because he knows $\phi$---so $X$
+    should therefore know that he knows $\phi$, which knowledge is expressible in
+    EA as $K(K(\phi))$.
   \end{itemize}
-  This is plausible because if $X$ performs the action of including $\phi$ in the
-  list of $\mathscr L$-sentences he knows, then $X$ should \emph{know} that he
-  performs that action, and consequently, since $X$ is an AGI fully capable of
-  human (or better) level reasoning, $X$ should certainly therefore know that $X$
-  knows $\phi$.
 \end{example}
 
-\subsection{Absolute versions of incompleteness theorems}
+\begin{example}
+    (Reinhardt's strong mechanistic thesis
+    \cite{reinhardt1985absolute} \cite{reinhardt1986epistemic}
+    \cite{carlson}) Reinhardt suggested the
+    EA-schema
+    \[\exists e \forall x ( K(\phi) \leftrightarrow x\in W_e)\]
+    as a formalization of the mechanicalness of the knower. Here, $W_e$
+    is the $e$th computably enumerable set of natural numbers ($W_e$ can also
+    be thought of as the set of naturals enumerated by the $n$th Turing machine).
+    For simplicity, consider the case where $x$ is the lone free variable
+    of $\phi$. Then in terms of Definition \ref{maindefextension}, the schema
+    becomes:
+    ``If $X$ were commanded to enumerate his knowledge in the language of EA,
+    then the set of $n\in\mathbb N$ such that $X$ would include $\phi(x|\overline n)$
+    in the resulting list, would be computably enumerable.''
+    This is not just plausible but obvious\footnote{What is much less obvious
+    is the fact that it is consistent for the knower himself to
+    know the schema in question. This was conjectured by Reinhardt, and
+    proved by Carlson \cite{carlson}. The proof makes use of sophisticated results
+    about the arithmetic \cite{carlson1999} of ordinal numbers.}, since $X$ himself
+    is an AGI and thus presumably a computer.
+\end{example}
 
-In his paper \cite{reinhardt1986epistemic} about absolute versions of
-G\"odel's incompleteness theorems, one of the results can be glossed as follows:
-\begin{itemize}
-  \item
-  If an AGI knows the truthfulness of his own knowledge, then he cannot
-  know which Turing machine he is.
-\end{itemize}
-This was done by finding a specific formula $\phi$ with one free variable $x$,
-in the language of Epistemic Arithmetic,
-such that
-\[
-  (*) \,\,\,\,\, \exists e K(\forall x (K(\phi)\leftrightarrow x\in W_e))
-\]
-is inconsistent with some basic assumptions of knowledge
-(including the assumption that $X$ knows the truthfulness of his own knowledge).
-Here, $W_e$ denotes the computably enumerable set generated by Turing machine $e$. Thus,
-Definition \ref{maindefextension} translates the offending sentence ($*$) into the
-following form
-for an AGI $X$ (with $\mathscr L$ being the language of Epistemic Arithmetic):
-\begin{itemize}
-  \item
-  $(*) \,\,\,\,\, $There exists some $e$ such that if $X$ were commanded to enumerate his own
-  $\mathscr L$-knowledge, then the resulting list would include a sentence
-  stating that the $e$th Turing machine generates exactly the list of $n$ such
-  that $X$ knows $\phi(x|\overline n)$.
-\end{itemize}
+\begin{example}
+  (The Epistemic Church's Thesis \cite{flagg1985church} \cite{carlson2016collapsing})
+  The following EA-schema has been suggested as a kind of epistemic formalization
+  of Church's Thesis:
+  \[
+  ( \forall x\exists y (K(\phi))  ) \rightarrow
+  ( \exists e K( \forall x\exists y ( E(e,x,y) \wedge \phi  )  )  ),
+  \]
+  where $E(e,x,y)$ is an EA-formula which expresses that the $e$th Turing machine
+  outputs $y$ on input $x$.
+  This becomes: ``Suppose $X$ were commanded to enumerate his EA-knowledge.
+  Assume there is a (not necessarily computable) function
+  $f:\mathbb N\to\mathbb N$ such that for every $n\in\mathbb N$,
+  $\phi(x|\overline n)(y|overline{f(n)})$ is included in the resulting enumeration.
+  Then in fact there is a \emph{computable}
+  function $f':\mathbb N\to\mathbb N$ (with Turing index $e$)
+  such that $f'$ has the same property and such that the enumeration includes
+  a statement that $f'$ has said property.''
+  Flagg proved \cite{flagg1985church} that this is consistent with basic axioms,
+  and Carlson proved \cite{carlson2016collapsing} that it is also consistent with
+  Reinhardt's strong mechanistic thesis.
+\end{example}
 
-In light of Church's Thesis (which asserts that Turing machines capture all
-effectively computable algorithms), we can remove the reference to Turing machines
-from the gloss of Reinhardt's result and state it in a form even more useful
-in the field of AGI research:
-\begin{itemize}
-  \item
-  An AGI cannot know its own truthfulness and its own source-code.
-\end{itemize}
-
-Often (including in Reinhardt's own paper), it is taken for granted that
-a machine (or an AGI) knows its own truthfulness.
-Under that assumption, Reinhardt's result would further simplify to
-simply: ``An AGI cannot know its own source-code''.
-
-\subsection{Avoiding incompleteness theorems}
-
-Reinhardt conjectured that although a machine (implicitly, a machine which
-knows its own truthfulness) cannot know which Turing machine he is, he can
-nevertheless know that he is \emph{some} Turing machine, without knowing
-which one. In other words, such a machine can know his own mechanicalness.
-This conjecture, now known as \emph{Reinhardt's strong mechanistic thesis}, was
-proved by Carlson \cite{carlson} using sophisticated theorems about the
-arithmetic of ordinal numbers \cite{carlson1999}\footnote{See
-\cite{alexander2015fast} for an elementary proof of a weakened version of
-this result.}.
-This is a consistency result for machine knowers, so it remains possible
-that an AGI cannot know its own truthfulness and its own mechanicalness, but
-this this consistency result at least seems to add evidence for
-the possibility of an AGI knowing its own truthfulness and its own mechanicalness.
-
-In \cite{alexander2014machine} we showed that if the assumption that the
-machine knows its own truthfulness is relaxed (while still requiring that
-the machine \emph{be} true, just not necessarily that it knows so),
-then it \emph{is} possible for such a machine to exactly know which
-Turing machine it is. See also the discussion in \cite{aldini2015theory}.
-Again, this is a consistency result for machine knowers, so it does not
-necessarily hold more specifically for AGIs, but at least it adds evidence
-for the possibility that an AGI which does not know its own truthfulness
-can know its own code.
-
-% \subsection{Generic knowledge}
-
-% \cite{alexander2015fast}
-
-\subsection{Formalizations of Church's Thesis}
-
-Church's Thesis is generally understood as an informal statement that cannot
-be formally proven (similar to a physical law of nature).
-But in the language of Epistemic Arithmetic, it can be formalized into an
-axiom which may or may not hold for particular knowing agents. This formalization
-is called the Epistemic Church's Thesis. Written in the language of Epistemic
-Arithmetic, it takes the form
-\[
-  K( ( \forall x\exists y (K(\phi))  ) \rightarrow
-  ( \exists e K( \forall x\exists y ( E(e,x,y) \wedge \phi  )  )  )  )
-\]
-where $E(e,x,y)$ is a formula stating that the $e$th Turing machine
-halts on input $x$ with output $y$.
-Thus, in English, for an AGI $X$,
-the Epistemic Church's Thesis can be glossed as follows:
-\begin{itemize}
-  \item
-  $X$ knows the following: if, for every $m$, there is some $n$ such that
-  $X$ knows $\phi(x|\overline m)(y|overline n)$, then there exists some
-  Turing machine $e$ such that $X$ knows the following:
-  for every $m$, if $m$ is input into $e$, then $e$ will output
-  some $n$ such that $\phi(x|\overline m)(y|overline n)$.
-\end{itemize}
-Or to put it much more simply:
-\begin{itemize}
-  \item
-  $X$ knows the following: if for every $m$ there is some $n$ such that
-  $X$ knows $\phi(x|\overline m)(y|overline n)$, then $X$ knows a Turing
-  machine which outputs such an $n$ for every input $m$.
-\end{itemize}
-Flagg showed \cite{flagg1985church} that the Epistemic Church's Thesis is
-consistent with basic assumptions of knowledge. Carlson strengthened this
-result and showed \cite{carlson2016collapsing} that the Epistemic Church's
-Thesis and Reinhardt's strong mechanistic thesis are simultaneously
-co-consistent with basic assumptions of knowledge.
-These consistency results are for general knowing machines, not specifically
-for AGIs, but they do at least add evidence that it may be possible for an
-AGI to satisfy the Epistemic Church's Thesis.
-
-\subsection{Knowledge-based measures of intelligence}
-
-At the 2019 CIFMA conference, we presented \cite{alexander2019measuring}
-a theoretical measure of intelligence based on mathematical knowledge
-(see also \cite{alexander2020agi} where we dubbed this intelligence
-measure \emph{Intuitive Ordinal Intelligence}).
-In short, we defined an intelligence measure where the intelligence of
-a mechanical knowing agent is defined to be the supremum of the
-ordinal numbers which have codes that the agent knows to be codes
-of ordinal numbers. Using Definition \ref{maindef}, this translates
-to AGI as follows. Let $\mathscr L$ be the language of Epistemic Arithmetic
-along with an additional unary predicate symbol for Kleene's $\mathcal O$
-(a standard set of natural number notations for all the computable
-ordinals). For any AGI $X$, the Intuitive Ordinal Intelligence is the
-supremum of all those ordinals $\alpha$ such that $\alpha$ has a code
-$n\in\mathcal O$ such that, if $X$ were commanded to enumerate all the
-$\mathscr L$-sentences he knows, $X$ would include the an $\mathscr L$-sentence
-stating that $n\in\mathcal O$.
 
 
 \section{Conclusion}
