@@ -43,7 +43,7 @@ very different internal knowledge definitions and yet we want
 to be able to study knowledge of AGIs in general, without having
 to study different AGIs separately just because they have separate
 internal knowledge definitions. Finally, we suggest how this
-definition of AGI knowledge can be used as a bridge which will
+definition of AGI knowledge can be used as a bridge which could
 allow the AGI research community to import certain abstract results
 about mechanical knowing agents from mathematical logic.
 \keywords{AGI \and machine knowledge}
@@ -328,6 +328,7 @@ knowledge in any arithmetical language with exactly one knowledge operator $K$.
 \end{example}
 
 \section{Knowledge axioms}
+\label{appsection}
 
 In this section, we will look at some axioms of knowledge and interpret them in the
 context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
@@ -385,8 +386,8 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     This is not just plausible but obvious\footnote{What is much less obvious
     is the fact that it is consistent for the knower himself to
     know the schema in question. This was conjectured by Reinhardt, and
-    proved by Carlson \cite{carlson}. The proof makes use of sophisticated results
-    about the arithmetic \cite{carlson1999} of ordinal numbers.}, since $X$ himself
+    proved by Carlson \cite{carlson}. See \cite{aldini2015theory} for some further
+    discussion.}, since $X$ himself
     is an AGI and thus presumably a computer.
 \end{example}
 
@@ -408,17 +409,33 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   function $f':\mathbb N\to\mathbb N$ (with Turing index $e$)
   such that $f'$ has the same property and such that the enumeration includes
   a statement that $f'$ has said property.''
-  Flagg proved \cite{flagg1985church} that this is consistent with basic axioms,
-  and Carlson proved \cite{carlson2016collapsing} that it is also consistent with
-  Reinhardt's strong mechanistic thesis.
+  This beautiful formalism seems to capture the AGI's self-reflection ability.
+  We can imagine the AGI dutifully enumerating statement after statement and
+  as she goes, she discovers and predicts patterns in her own enumeration.
+  Flagg proved that the Epistemic Church's Thesis is
+  consistent with basic axioms of knowledge \cite{flagg1985church},
+  and Carlson proved that it is also consistent with
+  Reinhardt's strong mechanistic thesis \cite{carlson2016collapsing}.
 \end{example}
-
-
 
 \section{Conclusion}
 \label{conclusionsection}
 
-(Conclusion to be written later)
+What does it mean to know something? This is a difficult question and there probably
+is no one true answer. In the field of AGI, how can we systematically investigate
+the theoretical properties of knowledge, when different AGIs might not even agree
+amongst eachother about what knowledge really means? So motivated, we have proposed
+an elegant way to brush these philosophical questions aside. In Definition \ref{maindef},
+we declare that an AGI knows a sentence in a standard mathematical language if and
+only if that AGI would enumerate that sentence if commanded to enumerate all the
+things it knows (according to its own internal knowledge definition) in that
+mathematical language. In Definition \ref{maindefextension}
+we extend this to formulas with free variables, not just sentences.
+
+This one-size-fits-all knowledge definition sets the study of AGI knowledge
+on a firmer theoretical footing. In Section \ref{appsection} we give examples
+of how our definition can serve as a bridge to translate knowledge-related
+results from mathematical logic into the realm of AGI.
 
 \bibliographystyle{splncs04}
 \bibliography{short}
