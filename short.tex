@@ -112,8 +112,6 @@ The structure of this paper is as follows.
 \section{Idealized AGIs}
 \label{agisection}
 
-
-
 In this paper, we approach AGI using what
 Goertzel \cite{goertzel2014artificial} calls
 the Universalist Approach:
@@ -121,10 +119,48 @@ we adopt ``...an idealized case of AGI, similar to
 assumptions like the frictionless plane in physics'', hoping that by
 understanding this ``simplified special
 case, we can use the understanding we've gained to address more realistic
-cases.'' We assume the AGI is designed in such a way as to understand
-English commands, and is capable of practical English communication.
-Below, we will state some additional
-idealized assumptions, but first we will need a preliminary definition.
+cases.''
+
+We do not have a formal definition for what an AGI is, but whatever it is,
+we assume an AGI is a deterministic machine
+which repeatedly reads sensory input from its environment and outputs
+English words based on what sensory inputs it has received so far.
+When we say that this AGI is a ``deterministic machine'', we mean that
+said outputs (considered as a function of said inputs) could be computed
+by a Turing machine. We further assume the AGI can understand English
+commands and is capable of practical English communication. Thus, if
+we were to command the AGI in English, ``Tell us the value of $1+1$'',
+the AGI would respond in English and reply ``$2$'', or ``$1+1=2$'',
+or something along those lines.
+
+We assume an AGI is capable of everyday English discussions
+which would cause no difficulty to a casual English speaker, even if
+these discussions involve topics, such as ``knowledge'', which
+might be philosophically tricky. A casual English speaker does not get
+bogged down in philosophical questions about the nature of knowledge
+just in order to answer a question like ``Do you know that $1+1=2$?'',
+and therefore neither should our AGI.
+
+We also assume an AGI is better than a casual English speaker in certain ways.
+We assume an AGI would have no objections to performing exceedingly tedious
+tasks indefinitely, if so commanded. If we asked a casual English speaker to
+begin computing and reciting all the prime numbers until further notice, and
+then we waited silently forever to hear the results, said human would eventually
+get tired of the endless tedium and would disobey our command (not to mention
+the fact that they might make arithmetic errors along the way). We assume an AGI
+has no such limitations and would happily compute and recite prime numbers for
+all eternity, if so commanded---and with no arithmetic errors, too. Of course,
+in reality the AGI would eventually run out of memory, or perish in the heat
+death of the universe, etc., but we are speaking of idealized AGI here and we
+intentionally ignore such possibilities, in the same way a Turing machine is
+assumed to have infinite tape and infinite time to run.
+
+
+\section{An elegant definition of mathematical knowledge}
+\label{mainsection}
+
+Before getting to our knowledge definition for AGIs, we need the following
+preliminary definition.
 
 \begin{definition}
 \label{stdmathematicallanguagedefn}
@@ -139,46 +175,18 @@ interprets the arithmetical symbols of Peano Arithmetic in the usual ways.
 Presumably an AGI suitably familiar with the mathematical literature should
 be aware of this intended interpretation for Peano Arithmetic.
 
-Armed with Definition \ref{stdmathematicallanguagedefn}, we are ready to articulate
-the key additional assumption which we make about an AGI.
-
-\begin{definition}
-\label{obedientdefn}
-  An AGI $X$ is \emph{obedient} if, for every standard mathematical language
-  $\mathscr L$, the following is true. When commanded to enumerate the
-  $\mathscr L$-sentences that he knows, $X$ will obey the command:
-  $X$ will enumerate exactly the $\mathscr L$-sentences that he knows
-  (according to his own internal definition of knowledge,
-  whatever that may be).
-\end{definition}
-
-
-Note that in Definition \ref{obedientdefn}, we do not require the AGI to use
-the definition of knowledge that we are proposing in this paper (if we did so,
-our definition would be circular).
-
-Definition \ref{obedientdefn} would be inappropriate
-for human agents, who are forgetful and error-prone and who tend to resist
-tedious tasks such as enumerating endless lists of
-mathematical sentences. But arguably Definition \ref{obedientdefn} is plausible for a
-sufficiently idealized AGI. Such an AGI can presumably perform calculations with
-no risk of mechanical error. And such an AGI should have unlimited patience and have no
-problem tediously enumerating mathematical sentences as long as memory-banks
-and electricity are available.
-
-
-\section{An elegant definition of mathematical knowledge}
-\label{mainsection}
-
-If $X$ is an idealized AGI which is obedient, we define the mathematical
+Armed with Definition \ref{stdmathematicallanguagedefn}, we are ready to state
+our definition of knowledge for AGIs.
+If $X$ is an idealized AGI, we define the mathematical
 knowledge of $X$ (as far as sentences go)
 as follows (where $\mathscr L$ denotes a standard mathematical
 language).
 
 \begin{definition}
 \label{maindef}
-  For any $\mathscr L$-sentence $\phi$, we say that an
-  obedient AGI $X$ knows $\phi$ if and only
+  Let $X$ be an AGI and let $\mathscr L$ be a standard mathematical language.
+  For any $\mathscr L$-sentence $\phi$, we say that $X$
+  knows $\phi$ if and only
   if $X$ would eventually list $\phi$ among the $\mathscr L$-sentences which $X$
   would list if $X$ were commanded:
   ``Enumerate, in the language $\mathscr L$, every mathematical sentence which
@@ -188,7 +196,7 @@ language).
 One of the strengths of Definition \ref{maindef} is that it is uniform across
 different AGIs: many different AGIs might internally operate based on different
 definitions of knowledge, but Definition \ref{maindef} works equally well for
-all these different AGIs irrespective of those different internal knowledge
+all these different AGIs regardless of those different internal knowledge
 definitions\footnote{This is reminiscent of Elton's proposal that instead of
 trying to interpret an AI's outputs by focusing on specific low-level details
 of a neural network, we should instead let the AI explain itself \cite{elton}.}.
@@ -199,14 +207,14 @@ materially the two definitions have the same result.
 
 \begin{theorem}
 \label{sentenceequivalence}
-  Suppose $X$ is an obedient AGI, and let $\mathscr L$
+  Suppose $X$ is an AGI, and let $\mathscr L$
   be a standard mathematical language. For any $\mathscr L$-sentence $\phi$, the following
   are equivalent:
   \begin{enumerate}
     \item $X$ is
     considered to know $\phi$ (based on Definition \ref{maindef}).
     \item
-    $X$ is considered to know $\phi$ (based on $X$'s own inernal definition of
+    $X$ is considered to know $\phi$ (based on $X$'s own inernal understanding of
     knowledge).
   \end{enumerate}
 \end{theorem}
@@ -236,7 +244,7 @@ that $X$ knows $\phi$ (according to the AGI's internal definition of knowledge).
 
 \begin{example}
 Applying Definition \ref{maindef} to the language of EA,
-we consider an obedient AGI $X$ to know $K(1+1=2)$ if and only if that AGI would output
+we consider an AGI $X$ to know $K(1+1=2)$ if and only if that AGI would output
 $K(1+1=2)$ when commanded to output all sentences that $X$ knows in the language of
 EA. By the intended interpretation of
 EA, $X$ would (when so commanded)
@@ -312,7 +320,7 @@ truth can be extended to a complete semantics for
 knowledge in any arithmetical language with exactly one knowledge operator $K$.
 
 \begin{example}
-  Assume an obedient AGI $X$ is clear from context.
+  Assume an AGI $X$ is clear from context.
   Suppose $\phi$ is a formula of one free variable $x$, in the language of EA,
   which expresses ``the $x$th Turing machine eventually halts''. Suppose we want to
   assign a truth value to the formula $\exists x (\neg K(\phi)\wedge \neg K(\neg\phi))$.
