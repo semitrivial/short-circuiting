@@ -177,10 +177,8 @@ be aware of this intended interpretation for Peano Arithmetic.
 
 Armed with Definition \ref{stdmathematicallanguagedefn}, we are ready to state
 our definition of knowledge for AGIs.
-If $X$ is an idealized AGI, we define the mathematical
-knowledge of $X$ (as far as sentences go)
-as follows (where $\mathscr L$ denotes a standard mathematical
-language).
+See Subsection \ref{noncircularsubsection} for a discussion of the non-circularity
+of the following definition.
 
 \begin{definition}
 \label{maindef}
@@ -189,9 +187,15 @@ language).
   knows $\phi$ if and only
   if $X$ would eventually list $\phi$ among the $\mathscr L$-sentences which $X$
   would list if $X$ were commanded:
-  ``Enumerate, in the language $\mathscr L$, every mathematical sentence which
-  is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
+  ``Enumerate, in the language $\mathscr L$, every sentence,
+  expressible in $\mathscr L$, which you know.''
 \end{definition}
+
+Note that Definition \ref{maindef} is non-circular because
+the AGI is capable (see Section \ref{agisection}) of practical English
+communication, including that involving everyday English words such as
+the word ``know'', independently of how any philosophers formally
+define things. More on this in Subsection \cite{noncircularsubsection}.
 
 One of the strengths of Definition \ref{maindef} is that it is uniform across
 different AGIs: many different AGIs might internally operate based on different
@@ -225,6 +229,52 @@ materially the two definitions have the same result.
   all the $\mathscr L$-sentences that $X$ knows. Since $X$ is obedient, $X$ would output
   $\phi$ in that list if and only if (2).
 \end{proof}
+
+\subsection{Non-Circularity of Definition \ref{maindef}}
+\label{noncircularsubsection}
+
+Definition \ref{maindef} is non-circular because an AGI's response to an English
+command only depends on how the AGI understands the words in that command, not
+on how \emph{we} understand the words in that command. Recall from Section \ref{agisection}
+that we are assuming an AGI is a deterministic machine which outputs English words
+based on sensory inputs from its environment. Those outputs depend \emph{only} on those
+environmental inputs, and not on any decisions made by philosophers.
+
+If the reader wants to further convince themselves of the non-circularity of Definition
+\ref{maindef}, we need only point out that the apparent circularity would disappear if
+we changed Definition \ref{maindef} to define what it means for $X$ to ``grok'' sentence
+$\phi$, rather that to ``know'' sentence $\phi$ (without changing the command itself).
+In other words, we could define that $X$ ``groks'' $\phi$ if and only if $X$ would include
+$\phi$ in the list of sentences that would result if $X$ were commanded,
+``Enumerate, in the language $\mathscr L$, every sentence,
+  expressible in $\mathscr L$, which you know.''
+This would make the non-circularity clearer, because the word ``grok'' does not appear
+anywhere in the definition. But the circularity of the definition should not depend on
+what word we assign to the definee.
+
+For the sake of completion, we will further illustrate the non-circularity of
+Definition \ref{maindef} with three examples.
+\begin{itemize}
+  \item
+  (The color blurple) Bob could (without Alice's awareness) define ``blurple'' to be the
+  color of the card
+  which Alice would choose if Bob were to run up to Alice, present her a red card
+  and a blue card, and demand: ``Quick, choose the blurple card! Do it now, no time
+  for questions!'' There is nothing circular about this, because Alice's choice
+  cannot depend on a definition which Alice is unaware of.
+  \item
+  (Bound variables) In mathematical logic, it is perfectly legal and non-circular to
+  define $x$ to be the unique element of $\mathbb N$ satisfying the formula
+  $(x=0)\wedge \exists x(x=1)$. This defines $x$ as $0$. The subformula
+  $\exists x(x=1)$ is true regardless of which formula this subformula is a subformula of.
+  \item
+  (Zero to the zero) If asked to compute $0^0$, some calculators output $1$, and some
+  output an error message or say the result is undefined. For any calculator $X$, it
+  would be perfectly non-circular to define ``the $0^0$ of $X$'' to be the output which
+  $X$ outputs when asked to compute $0^0$. Said output is pre-programmed into the
+  calculator; the calculator does not read the user's mind in order to base its answer
+  on any definitions that exist there.
+\end{itemize}
 
 \subsection{Languages with Knowledge Operators}
 
