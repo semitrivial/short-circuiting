@@ -18,7 +18,7 @@ Artificial General Intelligence
 %\thanks{}
 }
 
-%\titlerunning{Short-circuiting the definition of knowledge}
+\titlerunning{Short-circuiting the definition of mathematical knowledge for an AGI}
 
 \author{Samuel Allen
 Alexander\inst{1}\orcidID{0000-0002-7930-110X}}
@@ -195,7 +195,7 @@ Note that Definition \ref{maindef} is non-circular because
 the AGI is capable (see Section \ref{agisection}) of practical English
 communication, including that involving everyday English words such as
 the word ``know'', independently of how any philosophers formally
-define things. More on this in Subsection \cite{noncircularsubsection}.
+define things. More on this in Subsection \ref{noncircularsubsection}.
 
 One of the strengths of Definition \ref{maindef} is that it is uniform across
 different AGIs: many different AGIs might internally operate based on different
@@ -265,11 +265,13 @@ Definition \ref{maindef} with three examples.
   \item
   (Bound variables) In mathematical logic, it is perfectly legal and non-circular to
   define $x$ to be the unique element of $\mathbb N$ satisfying the formula
-  $(x=0)\wedge \exists x(x=1)$. This defines $x$ as $0$. The subformula
+  \[(x=0)\wedge \exists x(x=1).\]
+  This defines $x$ as $0$. The subformula
   $\exists x(x=1)$ is true regardless of which formula this subformula is a subformula of.
   \item
   (Zero to the zero) If asked to compute $0^0$, some calculators output $1$, and some
-  output an error message or say the result is undefined. For any calculator $X$, it
+  output an error message or say the result is undefined\footnote{Which is incorrect---see
+  \cite{knuth}.}. For any calculator $X$, it
   would be perfectly non-circular to define ``the $0^0$ of $X$'' to be the output which
   $X$ outputs when asked to compute $0^0$. Said output is pre-programmed into the
   calculator; the calculator does not read the user's mind in order to base its answer
