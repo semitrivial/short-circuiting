@@ -197,13 +197,6 @@ communication, including that involving everyday English words such as
 the word ``know'', independently of how any philosophers formally
 define things. More on this in Subsection \ref{noncircularsubsection}.
 
-\begin{theorem}
-(Well-definedness) Fill this in.
-\end{theorem}
-
-\begin{proof}
-  Fill this in.
-\end{proof}
 
 One of the strengths of Definition \ref{maindef} is that it is uniform across
 different AGIs: many different AGIs might internally operate based on different
@@ -226,7 +219,7 @@ materially the two definitions have the same result.
     \item $X$ is
     considered to know $\phi$ (based on Definition \ref{maindef}).
     \item
-    $X$ is considered to know $\phi$ (based on $X$'s own inernal understanding of
+    $X$ is considered to know $\phi$ (based on $X$'s own internal understanding of
     knowledge).
   \end{enumerate}
 \end{theorem}
@@ -236,6 +229,22 @@ materially the two definitions have the same result.
   include $\phi$ in the list which $X$ would output if $X$ were commanded to output
   all the $\mathscr L$-sentences that $X$ knows. Since $X$ is obedient, $X$ would output
   $\phi$ in that list if and only if (2).
+\end{proof}
+
+\begin{corollary}
+(Well-definedness) Suppose $\mathscr L_1$ and $\mathscr L_2$ are two
+standard mathematical languages and $\phi$ is a formula of them
+(in other words, every symbol occurring in $\phi$ is in both $\mathscr L_1$
+and $\mathscr L_2$). If $X$ is an AGI, then $X$ knows $\phi$ (according to
+Definition \ref{maindef} with language $\mathscr L_1$) if and only if
+$X$ knows $\phi$ (according to Definition \ref{maindef} with language
+$\mathscr L_2$).
+\end{corollary}
+
+\begin{proof}
+  By Theorem \ref{sentenceequivalence}, both statements are equivalent to
+  $X$ knowing $\phi$ according to $X$'s own internal understanding of
+  knowledge.
 \end{proof}
 
 \subsection{Non-Circularity of Definition \ref{maindef}}
