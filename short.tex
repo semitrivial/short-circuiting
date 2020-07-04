@@ -197,6 +197,14 @@ communication, including that involving everyday English words such as
 the word ``know'', independently of how any philosophers formally
 define things. More on this in Subsection \ref{noncircularsubsection}.
 
+\begin{theorem}
+(Well-definedness) Fill this in.
+\end{theorem}
+
+\begin{proof}
+  Fill this in.
+\end{proof}
+
 One of the strengths of Definition \ref{maindef} is that it is uniform across
 different AGIs: many different AGIs might internally operate based on different
 definitions of knowledge, but Definition \ref{maindef} works equally well for
@@ -396,10 +404,10 @@ knowledge in any arithmetical language with exactly one knowledge operator $K$.
   \end{itemize}
 \end{example}
 
-\section{Knowledge axioms}
+\section{Knowledge formulas}
 \label{appsection}
 
-In this section, we will look at some axioms of knowledge and interpret them in the
+In this section, we will look at some formulas about knowledge and interpret them in the
 context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
 
 \begin{example}
@@ -437,6 +445,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
 \end{example}
 
 \begin{example}
+\label{smtexample}
     (Reinhardt's strong mechanistic thesis
     \cite{reinhardt1985absolute} \cite{reinhardt1986epistemic}
     \cite{carlson}) Reinhardt suggested the
@@ -454,12 +463,35 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     This is not just plausible but obvious\footnote{What is much less obvious
     is the fact that it is consistent for the knower himself to
     know the schema in question. This was conjectured by Reinhardt, and
-    proved by Carlson \cite{carlson}. See \cite{aldini2015theory} for some further
-    discussion.}, since $X$ himself
+    proved by Carlson \cite{carlson} using sophisticated structural
+    results about the ordinals \cite{carlson1999}. See
+    \cite{alexander2015fast} for an elementary
+    proof of a weaker version of the conjecture.}, since $X$ himself
     is an AGI and thus presumably a computer.
 \end{example}
 
 \begin{example}
+\label{reinhardtnegativeexample}
+  (Reinhardt's absolute version of the incompleteness theorem)
+  If we vary the formula from Example \ref{smtexample} by requiring that the
+  knowing know the value of $e$, we obtain:
+  \[
+    \exists e K(\forall x ( K(\phi) \leftrightarrow x\in W_e)).
+  \]
+  Carlson \cite{carlson} glosses this schema in English as:
+  ``I am a Turing machine, and I know which one.''
+  Reinhardt showed that this schema is \emph{not} consistent with basic
+  axioms about knowledge. Following Carlson's gloss, this strongly
+  suggests that it is impossible for an AGI to know its own code\footnote{We have
+  pointed out elsewhere \cite{alexander2014machine} that Reinhardt
+  implicitly assumes that the knower knows its own truthfulness, and that
+  it is possible for a knowing machine to know its own code if it is allowed to
+  be ignorant of its own truthfulness, despite still being truthful.
+  See \cite{aldini2015theory} and \cite{aldini2015self} for some additional discussion.}.
+\end{example}
+
+\begin{example}
+\label{ectexample}
   (The Epistemic Church's Thesis \cite{flagg1985church} \cite{carlson2016collapsing})
   The following EA-schema has been suggested as a kind of epistemic formalization
   of Church's Thesis:
@@ -480,11 +512,52 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   This beautiful formalism seems to capture the AGI's self-reflection ability.
   We can imagine the AGI dutifully enumerating statement after statement and
   as she goes, she discovers and predicts patterns in her own enumeration.
-  Flagg proved that the Epistemic Church's Thesis is
+  Flagg proved that (knowledge by the knower of) the Epistemic Church's Thesis is
   consistent with basic axioms of knowledge \cite{flagg1985church},
   and Carlson proved that it is also consistent with
   Reinhardt's strong mechanistic thesis \cite{carlson2016collapsing}.
 \end{example}
+
+\begin{remark}
+  As far as we know, AGI has not yet received much attention in the mathematical logical
+  literature. Instead, mathematical logicians tend to concern themselves with
+  \emph{knowing agents} or \emph{knowing machine}. Presumably, every AGI is a
+  knowing agent and a knowing machine, but certainly not every
+  knowing agent (or knowing machine) is an AGI. Thus, in general,
+  inconsistency results about knowing agents or knowing machines
+  carry directly over to AGIs (if no knowing agent, or no knowing machine, can
+  satisfy some property, then in particular no AGI can either).
+  Consistency results do not generally carry over to AGIs (it may be possible for
+  a knowing agent or a knowing machine to satisfy some property, but it might be
+  that none of the knowing agents or knowing machines which satisfy that property
+  are AGIs). Nevertheless, a positive result about knowing agents or knowing machines
+  should at least count as evidence in favor of the corresponding positive result
+  for AGIs, at least if there is no clear reason otherwise. In the examples above:
+  \begin{itemize}
+    \item
+    Reinhardt's strong mechanistic thesis (Example \ref{smtexample})
+    was proven to be consistent, so it is possible for a knowing machine to
+    know that it is a machine (without necessarily knowing which machine).
+    Since not every knowing machine is an AGI, it might still be impossible
+    for an AGI to know it is a machine. But the consistency of Reinhardt's
+    strong mechanistic thesis at least suggests evidence that an AGI can
+    know it is a machine.
+    \item
+    Reinhardt's absolute version of the incompleteness theorem
+    (Example \ref{reinhardtnegativeexample}) is an inconsitency result.
+    As such, it transfers over directly to AGI, proving (at least under
+    suitable idealization) that no AGI can know its own code\footnote{and its
+    own truthfulness---we have pointed out \cite{alexander2014machine} that
+    Reinhardt implicitly
+    assumes the knower knows its own truthfulness.}.
+    \item
+    The epistemic Church's thesis (Example \ref{ectexample}) was proven to be
+    consistent---some knowing machine satisfies it. Since not every knowing
+    machine is an AGI, it might still be impossible for an AGI to satisfy
+    this consistency result. But at least the result suggests evidence that
+    an AGI can know the epistemic Church's thesis about itself.
+  \end{itemize}
+\end{remark}
 
 \begin{example}
 \label{fineexample}
@@ -527,6 +600,10 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   $X$ would not include $I(\phi)$ nor $\neg I(\phi)$.''
 \end{example}
 
+\begin{example}
+  (Intuitive Ordinal Intelligence) Fill this in.
+\end{example}
+
 \section{Conclusion}
 \label{conclusionsection}
 
@@ -545,6 +622,11 @@ This one-size-fits-all knowledge definition sets the study of AGI knowledge
 on a firmer theoretical footing. In Section \ref{appsection} we give examples
 of how our definition can serve as a bridge to translate knowledge-related
 results from mathematical logic into the realm of AGI.
+
+\section*{Acknowledgments}
+
+We gratefully acknowledge Alessandro Aldini and Phil Maguire for
+comments and feedback.
 
 \bibliographystyle{splncs04}
 \bibliography{short}
