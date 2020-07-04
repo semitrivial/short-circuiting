@@ -486,6 +486,47 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   Reinhardt's strong mechanistic thesis \cite{carlson2016collapsing}.
 \end{example}
 
+\begin{example}
+\label{fineexample}
+  (Higher-order ignorance) Let $I(\phi)$ be shorthand for
+  $\neg K(\phi)\wedge \neg K(\neg\phi)$, so $I(\phi)$ expresses the knower's
+  ignorance about $\phi$. Kit Fine argued \cite{fine2018ignorance} that very
+  basic assumptions
+  about knowledge imply that second-order ignorance implies third-order (and hence
+  all higher-than-second-order) ignorance:
+  \[
+    I(I(\phi)) \rightarrow I(I(I(\phi))).
+  \]
+  This becomes: ``If, when $X$ is commanded to enumerate his knowledge in the
+  language EA (or some similar standard mathematical language with a knowledge
+  operator), $X$ would not enumerate either $I(\phi)$ nor $\neg I(\phi)$ in
+  the resulting enumeration, then $X$ would also not enumerate either $I(I(\phi))$
+  nor $\neg I(I(\phi))$ in the resulting enumeration.''
+\end{example}
+
+\begin{example}
+  (Belief and higher-order ignorance) Fano and Graziani have suggested \cite{fano} the
+  following axiom which would relate belief ($B$) with higher-order ignorance
+  (where, as in Example \ref{fineexample}, $I(\phi)$ is shorthand for
+  $\neg K(\phi)\wedge \neg K(\neg\phi)$):
+  \[
+    ((B(\phi) \wedge \neg\phi)\vee (B(\neg\phi)\wedge \phi)) \rightarrow I(I(\phi)),
+  \]
+  in other words, that false belief about $\phi$ implies higher-order ignorance
+  about $\phi$. It would be straightforward to give a definition similar to
+  Definition \ref{maindef} for belief, along the following lines: an AGI $X$
+  believes a formula $\phi$ (in a standard mathematical language $\mathscr L$)
+  if and only if $X$ would include $\phi$ in the resulting list if $X$ were
+  commanded:
+    ``Enumerate, in the language $\mathscr L$, every sentence,
+  expressible in $\mathscr L$, which you believe.''
+  This proposed axiom of Fano and Graziani would then become:
+  ``If, when commanded to enumerate his beliefs in EA (or similar language),
+  $X$ would include $\neg\phi$ (if $\phi$ is true) or $\phi$ (if $\phi$ is false),
+  then, when commanded to enumerate his knowledge in said language,
+  $X$ would not include $I(\phi)$ nor $\neg I(\phi)$.''
+\end{example}
+
 \section{Conclusion}
 \label{conclusionsection}
 
