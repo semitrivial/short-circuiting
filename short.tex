@@ -247,6 +247,29 @@ $\mathscr L_2$).
   knowledge.
 \end{proof}
 
+The reader might wonder why we would not further simplify Definition \ref{maindef}
+and declare that $X$ knows $\phi$ if and only if $X$ would respond ``yes'' if
+$X$ were asked, ``Do you know $\phi$?''
+The reason why this would not work is because for certain mathematical statements,
+the answer may depend on how long the AGI is allowed to think about the question.
+For example, suppose $n$ is a natural number and we ask the AGI, ``Do you know that
+the $n$th Turing machine eventually halts when run on empty input?'' For certain
+particular values of $n$, the AGI might be able to answer this question in ad hoc
+ways, but in general, by the impossibility of the Halting Problem, the best the
+AGI can do is to run the $n$th Turing machine for awhile and see experimentally
+whether it halts. If the $n$th Turing machine does not halt, then the AGI might
+run it for a million steps and suspect that it does not halt, but maybe if the AGI
+had run it for two million steps, the Turing machine would have halted. Thus,
+if we demand a simple yes-no answer to ``Do you know that the $n$th Turing machine
+eventually halts when run on empty input?'', the answer will only partly be about
+what the AGI knows, and partly will be about how patient the AGI is (or how
+quickly it performs calculations). By designing Definition \ref{maindef} the way
+we have, we allow the AGI to take as long as it likes, by dividing up its
+calculations (a process known as \emph{dovetailing}) so that it can effectively
+spend unbounded amounts of time pondering the truth value of a difficult formula
+without putting all the other formulas on hold.
+
+
 \subsection{Non-Circularity of Definition \ref{maindef}}
 \label{noncircularsubsection}
 
@@ -610,7 +633,21 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
 \end{example}
 
 \begin{example}
-  (Intuitive Ordinal Intelligence) Fill this in.
+  (Intuitive Ordinal Intelligence) In \cite{ioi1} we defined
+  an intelligence measure for idealized mechanical knowing agents as follows.
+  If $A$ is such a knowing agent, we define the intelligence of $A$ to be
+  the supremum of the set of ordinals $\alpha$ such that
+  $\alpha$ has some code $c$ such that $A$ knows that $c$ is a code of
+  a computable ordinal. In \cite{ioi2} we specialized this to AGIs, and
+  called it \emph{Intuitive Ordinal Intelligence}.
+  Using Definition \ref{maindef}
+  to systematically perform said specialization, it becomes: ``The Intuitive Ordinal
+  Intelligence of an AGI $X$ is the supremum of the set of ordinals $\alpha$
+  such that there is some $c$ such that $X$ would include $\mathcal(\overline c)$
+  in the resulting enumeration if we asked $X$ to enumerate all the statements
+  that he knows and can express in $\mathscr L$, where $\mathscr L$ is a
+  standard mathematical language containing a predicate symbol $O$ for the
+  set of codes of computable ordinals.''
 \end{example}
 
 \section{Conclusion}
