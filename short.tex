@@ -378,18 +378,20 @@ knowledge in EA.
   We proceed as follows.
   \begin{itemize}
   \item Following Tarski, we should declare $\exists x (\neg K(\phi)\wedge\neg K(\neg\phi))$
-  is true if and only if for every assignment from $s$ from variables to $\mathbb N$,
+  is true if and only if for every assignment $s$ mapping variables to $\mathbb N$,
   $\exists x (\neg K(\phi)\wedge\neg K(\neg\phi))$ is true (with variables interpreted
   by $s$).
   \item
-  By the semantics of $\exists$, the above is true if and only if there is some
-  $n\in\mathbb N$ such that, for every assignment $s$ such that $s(x)=n$,
-  $\neg K(\phi)\wedge\neg K(\neg\phi)$ is true (with variables interpreted by $s$).
+  By the semantics of $\exists$, the above is true if and only if
+  for every assignment $s$, there is some $n\in\mathbb N$ such that
+  $\neg K(\phi)\wedge\neg K(\neg\phi)$ is true (with variables interpreted by $s(x|n)$),
+  where $s(x|n)$ is the assignment that agrees with $s$ except for mapping $x$ to $n$.
   \item
-  By Definition \ref{maindefextension}, this is the case if and only if there is
-  some $n\in\mathbb N$ such that, for every assignment $s$ with $s(x)=n$,
-  $X$ does not know $\phi^s$ (according to Definition \ref{maindef})
-  and $X$ does not know $\neg\phi^s$ (according to Definition \ref{maindef}).
+  By Definition \ref{maindefextension}, this is the case if and only if
+  for every assignment $s$ there is
+  some $n\in\mathbb N$ such that
+  $X$ does not know $\phi^{s(x|n)}$ (according to Definition \ref{maindef})
+  and $X$ does not know $\neg\phi^{s(x|n)}$ (according to Definition \ref{maindef}).
   \item
   By Definition \ref{superscript_s_defn} and the fact that $x$ is the only free
   variable in $\phi$, the above is the case if and only if there
@@ -401,7 +403,7 @@ knowledge in EA.
   to be true if and only if there is some $n\in \mathbb N$ such that,
   in response to the command
   ``Enumerate all the EA-sentences which you know'',
-  $X$ would not include $\phi(x\overline n)$ nor $\neg\phi(x|overline n)$
+  $X$ would not include $\phi(x|\overline n)$ nor $\neg\phi(x|\overline n)$
   in the resulting enumeration.
 \end{example}
 
