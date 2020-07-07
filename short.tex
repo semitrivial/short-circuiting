@@ -420,8 +420,8 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     \item (E1) $K(\phi)$ whenever $\phi$ is valid (i.e., a tautology).
     Interpreted for an AGI $X$ using Definition \ref{maindef}, this becomes:
     ``If commanded to enumerate his knowledge in EA, $X$ will include
-    all that language's tautologies in the resulting list.'' This is plausible
-    because the set of tautologies in a given computable language is computable,
+    all EA-tautologies in the resulting list.'' This is plausible
+    because the set of tautologies in any computable language is computable,
     and an AGI should have no problem enumerating them.
     \item (E2) $K(\phi\rightarrow\psi)\rightarrow K(\phi)\rightarrow K(\psi)$.
     This becomes: ``If commanded to enumerate his knowledge in EA,
@@ -440,7 +440,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     \item (E4) $K(\phi)\rightarrow K(K(\phi))$. This becomes: ``If commanded to
     enumerate his knowledge in EA, if $X$ would list $\phi$,
     then $X$ would also list $K(\phi)$.'' This is plausible because presumably
-    when $X$ enumerates $\phi$ in response to the command, $X$ should in some sense
+    when $X$ enumerates $\phi$ in response to the command, $X$ should
     understand why he is enumerating $\phi$, namely because he knows $\phi$---so $X$
     should therefore know that he knows $\phi$.
   \end{itemize}
@@ -474,7 +474,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
 
 \begin{example}
 \label{reinhardtnegativeexample}
-  (Reinhardt's absolute version of the incompleteness theorem)
+  (Reinhardt's absolute version of G\"odel's incompleteness theorem)
   If we vary the formula from Example \ref{smtexample} by requiring that the
   knowing know the value of $e$, we obtain:
   \[
@@ -503,18 +503,27 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   \]
   where $E(e,x,y)$ is an EA-formula which expresses that the $e$th Turing machine
   outputs $y$ on input $x$.
-  This becomes: ``Suppose $X$ were commanded to enumerate his EA-knowledge.
-  Assume there is a (not necessarily computable) function
-  $f:\mathbb N\to\mathbb N$ such that for every $n\in\mathbb N$,
-  $\phi(x|\overline n)(y|\overline{f(n)})$ is included in the resulting enumeration.
-  Then in fact there is a \emph{computable}
-  function $f':\mathbb N\to\mathbb N$ (with Turing index $e$)
-  such that $f'$ has the same property and such that the enumeration includes
-  a statement that $f'$ has said property.''
+  This becomes:
+  \begin{itemize}
+    \item
+    ``Suppose $X$ were commanded to enumerate his EA-knowledge.
+    Assume there is a (not necessarily computable) function
+    $f:\mathbb N\to\mathbb N$ such that for every $n\in\mathbb N$,
+    $\phi(x|\overline n)(y|\overline{f(n)})$ is \emph{individually}
+    included in the resulting enumeration.
+    Then in fact there is a computable
+    function $f':\mathbb N\to\mathbb N$ (with Turing index $e$)
+    such that the enumeration includes
+    a \emph{single} statement which transcends all the aforementioned statements
+    by stating all at once that $\phi(x|\overline n)(y|\overline{f'(n)})$
+    is true for all $n\in\mathbb N$.''
+  \end{itemize}
   This beautiful formalism seems to capture the AGI's self-reflection ability.
   We can imagine the AGI dutifully enumerating statement after statement and
   as she goes, she discovers and predicts patterns in her own enumeration.
-  Flagg proved that (knowledge by the knower of) the Epistemic Church's Thesis is
+  If the above schema is called $\Phi$, then the schema $K(\Phi)$ is what is called
+  the Epistemic Church's Thesis.
+  Flagg proved that the Epistemic Church's Thesis is
   consistent with basic axioms of knowledge \cite{flagg1985church},
   and Carlson proved that it is also consistent with
   Reinhardt's strong mechanistic thesis \cite{carlson2016collapsing}.
@@ -532,13 +541,14 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   Consistency results do not generally carry over to AGIs (it may be possible for
   a knowing agent or a knowing machine to satisfy some property, but it might be
   that none of the knowing agents or knowing machines which satisfy that property
-  are AGIs). Nevertheless, a positive result about knowing agents or knowing machines
-  should at least count as evidence in favor of the corresponding positive result
+  are AGIs). Nevertheless, a consistency result about knowing agents or knowing machines
+  should at least count as evidence in favor of the corresponding consistency result
   for AGIs, at least if there is no clear reason otherwise. In the examples above:
   \begin{itemize}
     \item
     Reinhardt's strong mechanistic thesis (Example \ref{smtexample})
-    was proven to be consistent, so it is possible for a knowing machine to
+    was proven to be consistent with basic knowledge axioms, so it is possible
+    for a knowing machine to
     know that it is a machine (without necessarily knowing which machine).
     Since not every knowing machine is an AGI, it might still be impossible
     for an AGI to know it is a machine. But the consistency of Reinhardt's
@@ -554,10 +564,11 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     assumes the knower knows its own truthfulness.}.
     \item
     The epistemic Church's thesis (Example \ref{ectexample}) was proven to be
-    consistent---some knowing machine satisfies it. Since not every knowing
-    machine is an AGI, it might still be impossible for an AGI to satisfy
-    this consistency result. But at least the result suggests evidence that
-    an AGI can know the epistemic Church's thesis about itself.
+    consistent with basic knowledge axioms.
+    Since not every knowing
+    machine is an AGI, this consistency result might not hold for AGIs.
+    But at least the result suggests evidence that
+    an AGI can satisfy the Epistemic Church's Thesis.
   \end{itemize}
 \end{remark}
 
@@ -590,15 +601,16 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   in other words, that false belief about $\phi$ implies higher-order ignorance
   about $\phi$. It would be straightforward to give a definition similar to
   Definition \ref{maindef} for belief, along the following lines: an AGI $X$
-  believes a formula $\phi$ (in a standard mathematical language $\mathscr L$)
+  believes a formula $\phi$ (in a mathematical language $\mathscr L$ similar to EA but also
+  including an operator $B$ for belief)
   if and only if $X$ would include $\phi$ in the resulting list if $X$ were
   commanded:
     ``Enumerate, in the language $\mathscr L$, every sentence,
   expressible in $\mathscr L$, which you believe.''
   This proposed axiom of Fano and Graziani would then become:
-  ``If, when commanded to enumerate his beliefs in EA (or similar language),
+  ``If, when commanded to enumerate his beliefs in $\mathscr L$,
   $X$ would include $\neg\phi$ (if $\phi$ is true) or $\phi$ (if $\phi$ is false),
-  then, when commanded to enumerate his knowledge in said language,
+  then
   $X$ would not include $I(\phi)$ nor $\neg I(\phi)$.''
 \end{example}
 
@@ -610,14 +622,15 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   $\alpha$ has some code $c$ such that $A$ knows that $c$ is a code of
   a computable ordinal. In \cite{ioi2} we specialized this to AGIs, and
   called it \emph{Intuitive Ordinal Intelligence}.
-  Using Definition \ref{maindef}
-  to systematically perform said specialization, it becomes: ``The Intuitive Ordinal
+  Let $\mathscr L$ be a language like EA but including an additional
+  predicate symbol $O$ for the set of codes of computable ordinals.
+  Modifying Definition \ref{maindef} accordingly,
+  we can systematically perform said specialization to AGIs, and it becomes:
+  ``The Intuitive Ordinal
   Intelligence of an AGI $X$ is the supremum of the set of ordinals $\alpha$
   such that there is some $c$ such that $X$ would include $\mathcal(\overline c)$
   in the resulting enumeration if we asked $X$ to enumerate all the statements
-  that he knows and can express in $\mathscr L$, where $\mathscr L$ is a
-  standard mathematical language containing a predicate symbol $O$ for the
-  set of codes of computable ordinals.''
+  that he knows in $\mathscr L$, where $\mathscr L$.''
 \end{example}
 
 \section{Conclusion}
@@ -628,11 +641,15 @@ is no one true answer. In the field of AGI, how can we systematically investigat
 the theoretical properties of knowledge, when different AGIs might not even agree
 about what knowledge really means? So motivated, we have proposed
 an elegant way to brush these philosophical questions aside. In Definition \ref{maindef},
-we declare that an AGI knows a sentence in a standard mathematical language if and
-only if that AGI would enumerate that sentence if commanded to enumerate all the
-things it knows (according to its own internal knowledge definition) in that
-mathematical language. In Definition \ref{maindefextension}
-we extend this to formulas with free variables, not just sentences.
+we declare that an AGI knows an EA-sentence if and
+only if that AGI would enumerate that sentence if commanded:
+  \[
+  \mbox{$``Enumerate all the EA-sentences which you know.''$}
+  \]
+(This definition might look circular at first glance but we have argued that it is
+not; see Subsection \ref{noncircularsubsection}).
+In Definition \ref{maindefextension}
+we extended this to formulas with free variables, not just sentences.
 
 This one-size-fits-all knowledge definition sets the study of AGI knowledge
 on a firmer theoretical footing. In Section \ref{appsection} we give examples
