@@ -584,7 +584,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   ignorance about $\phi$. Kit Fine argued \cite{fine2018ignorance} that very
   basic assumptions
   about knowledge imply that second-order ignorance implies third-order (and hence
-  all higher-than-second-order) ignorance:
+  all higher-order) ignorance:
   \[
     I(I(\phi)) \rightarrow I(I(I(\phi))).
   \]
@@ -603,25 +603,25 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   \[
     ((B(\phi) \wedge \neg\phi)\vee (B(\neg\phi)\wedge \phi)) \rightarrow I(I(\phi)),
   \]
-  in other words, that false belief about $\phi$ implies higher-order ignorance
+  in other words, that incorrect belief about $\phi$ implies higher-order ignorance
   about $\phi$. It would be straightforward to give a definition similar to
   Definition \ref{maindef} for belief, along the following lines: an AGI $X$
   believes a formula $\phi$ (in a mathematical language $\mathscr L$ similar to EA but also
   including an operator $B$ for belief)
   if and only if $X$ would include $\phi$ in the resulting list if $X$ were
   commanded:
-    ``Enumerate, in the language $\mathscr L$, every sentence,
-  expressible in $\mathscr L$, which you believe.''
+  ``Enumerate all the $\mathscr L$-sentences which you believe.''
   This proposed axiom of Fano and Graziani would then become:
   ``If, when commanded to enumerate his beliefs in $\mathscr L$,
   $X$ would include $\neg\phi$ (if $\phi$ is true) or $\phi$ (if $\phi$ is false),
-  then
+  then, when commanded to enumerate his knowledge in $\mathscr L$,
   $X$ would not include $I(\phi)$ nor $\neg I(\phi)$.''
 \end{example}
 
 \begin{example}
   (Intuitive Ordinal Intelligence) In \cite{ioi1} we defined
-  an intelligence measure for idealized mechanical knowing agents as follows.
+  an intelligence measure for idealized mechanical knowing agents (who are
+  aware of the computable ordinals) as follows.
   If $A$ is such a knowing agent, we define the intelligence of $A$ to be
   the supremum of the set of ordinals $\alpha$ such that
   $\alpha$ has some code $c$ such that $A$ knows that $c$ is a code of
@@ -633,9 +633,9 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   we can systematically perform said specialization to AGIs, and it becomes:
   ``The Intuitive Ordinal
   Intelligence of an AGI $X$ is the supremum of the set of ordinals $\alpha$
-  such that there is some $c$ such that $X$ would include $\mathcal(\overline c)$
+  such that there is some $c$ such that $X$ would include $O(\overline c)$
   in the resulting enumeration if we asked $X$ to enumerate all the statements
-  that he knows in $\mathscr L$, where $\mathscr L$.''
+  that he knows in $\mathscr L$.''
 \end{example}
 
 \section{Conclusion}
