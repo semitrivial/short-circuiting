@@ -294,29 +294,18 @@ Definition \ref{maindef} with two examples.
   on any definitions that exist there.
 \end{itemize}
 
-\subsection{Languages with Knowledge Operators}
+\subsection{Sentences using the Knowledge Operator}
 
-Definition \ref{maindef} is particularly interesting when $\mathscr L$ itself
-contains an operator for the agent's knowledge. An example of such a language would be
-the language of Epistemic Arithmetic (or EA) from \cite{shapiro}, which consists of the
-language of Peano Arithmetic with the addition of an operator $K$ for knowledge:
-$K(1+1=2)$ should be read as something like
-``I know $1+1=2$'' or ``the knower knows $1+1=2$''. In the context of this paper,
-if $\mathscr L_0$ is a standard mathematical language, and if $\mathscr L$ is obtained
-from $\mathscr L_0$ by the addition of a knowledge operator $K$, then we also
-consider $\mathscr L$ to be a standard mathematical language. The intended model
-of $\mathscr L$ shall have the same universe and interpretation of
-$\mathscr L_0$-symbols as the intended model of $\mathscr L_0$. As for $K$,
-the intended interpretation (by an AGI $X$) of a formula $K(\phi)$ shall be
-that $X$ knows $\phi$ (according to the AGI's internal definition of knowledge).
+Definition \ref{maindef} is particularly interesting when $\phi$ itself
+contains makes use of EA's $K$ operator for knowledge.
 
 \begin{example}
-Applying Definition \ref{maindef} to the language of EA,
+Applying Definition \ref{maindef},
 we consider an AGI $X$ to know $K(1+1=2)$ if and only if that AGI would output
-$K(1+1=2)$ when commanded to output all sentences that $X$ knows in the language of
-EA. By the intended interpretation of
-EA, $X$ would (when so commanded)
-output $K(1+1=2)$ if and only if $X$ knows that he knows $1+1=2$.
+$K(1+1=2)$ when commanded to enumerate all the EA-sentences he knows.
+$X$ would (when so commanded)
+output $K(1+1=2)$ if and only if $X$ knows (in his own internal sense of the word ``know'')
+that he knows (in his own internal sense of the word ``know'') $1+1=2$.
 \end{example}
 
 \section{Quantified Modal Logic}
