@@ -464,14 +464,16 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     ``If $X$ were commanded to enumerate his knowledge in the language of EA,
     then the set of $n\in\mathbb N$ such that $X$ would include $\phi(x|\overline n)$
     in the resulting list, would be computably enumerable.''
-    This is not just plausible but obvious\footnote{What is much less obvious
-    is the fact that it is consistent for the knower himself to
-    know the schema in question. This was conjectured by Reinhardt, and
-    proved by Carlson \cite{carlson} using sophisticated structural
-    results about the ordinals \cite{carlson1999}. See
-    \cite{alexander2015fast} for an elementary
-    proof of a weaker version of the conjecture.}, since $X$ himself
+    This is not just plausible but obvious, since $X$ himself
     is an AGI and thus presumably a computer.
+    If $\Phi$ is the above EA-schema, then $K(\Phi)$ is \emph{Reinhardt's
+    strong mechanistic thesis}. Reinhardt conjectured that his strong mechanistic
+    thesis was consistent with basic axioms about knowledge (i.e., that it is
+    possible for a knowing machine to know that it is a machine).
+    This conjecture was proved by Carlson \cite{carlson} using sophisticated
+    structural results about the ordinals \cite{carlson1999}.
+    See \cite{alexander2015fast} for an elementary proof of a weaker
+    version of the conjecture.
 \end{example}
 
 \begin{example}
@@ -523,7 +525,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   This beautiful formalism seems to capture the AGI's self-reflection ability.
   We can imagine the AGI dutifully enumerating statement after statement and
   as she goes, she discovers and predicts patterns in her own enumeration.
-  If the above schema is called $\Phi$, then the schema $K(\Phi)$ is what is called
+  If the above EA-schema is called $\Phi$, then the schema $K(\Phi)$ is what is called
   the Epistemic Church's Thesis.
   Flagg proved that the Epistemic Church's Thesis is
   consistent with basic axioms of knowledge \cite{flagg1985church},
@@ -532,9 +534,9 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
 \end{example}
 
 \begin{remark}
-  As far as we know, AGI has not yet received much attention in the mathematical logical
+  As far as I know, AGI has not yet received much attention in the mathematical logical
   literature. Instead, mathematical logicians tend to concern themselves with
-  \emph{knowing agents} or \emph{knowing machine}. Presumably, every AGI is a
+  \emph{knowing agents} or \emph{knowing machines}. Presumably, every AGI is a
   knowing agent and a knowing machine, but certainly not every
   knowing agent (or knowing machine) is an AGI. Thus, in general,
   inconsistency results about knowing agents or knowing machines
@@ -560,7 +562,8 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     Reinhardt's absolute version of the incompleteness theorem
     (Example \ref{reinhardtnegativeexample}) is an inconsitency result.
     As such, it transfers over directly to AGI, proving (at least under
-    suitable idealization) that no AGI can know its own code\footnote{and its
+    suitable idealization) that no AGI can know its own code\footnote{Or rather,
+    its own code and its
     own truthfulness---we have pointed out \cite{alexander2014machine} that
     Reinhardt implicitly
     assumes the knower knows its own truthfulness.}.
