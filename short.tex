@@ -383,8 +383,8 @@ At least one of the following is true:
   Turing machine $M$ halts? (Yes or no)''.
 
   Since some elusive $\phi$ exists, there exists an elusive $\phi$ such that $|\phi|$
-  is as small as possible---in other words, such that $|\phi|\leq |\psi|$ for every
-  elusive $\psi$.
+  is as small as possible---that is, such that $|\phi|\leq |\psi|$ for every
+  elusive $\psi$. Fix such a $\phi$.
 
   Case 1: $\phi$ is an axiom of PA. Then condition (1) of the theorem is
   satisfied, as desired.
@@ -395,9 +395,9 @@ At least one of the following is true:
   Then since $\phi$ is not an axiom of PA,
   there must be $j,k<|\phi|$ such that $\phi_k$ is $\phi_j\rightarrow \phi_{|\phi|}$.
   Now, the sequence $\phi_1,\ldots,\phi_k$ witnesses that PA
-  proves $\phi_k$ and $|\phi_k|=k<|\phi|$; and the
+  proves $\phi_k$ and $|\phi_k|\leq k<|\phi|$; and the
   sequence $\phi_1,\ldots,\phi_j$ witnesses that PA proves
-  $\phi_j$ and $|\phi_j|=j<|\phi|$.
+  $\phi_j$ and $|\phi_j|\leq j<|\phi|$.
   Thus, since $\phi$ was chosen to be elusive with $|\phi|$ as small as possible,
   it follows that $\phi_k$ and $\phi_j$ are not elusive.
   Thus, $X$ quick-knows $\phi_j$, and $X$ quick-knows $\phi_k$,
@@ -407,9 +407,9 @@ At least one of the following is true:
 \end{proof}
 
 Theorem \ref{badnesstheorem} clearly shows that Definition \ref{instantlyknowsdefn}
-makes a terrible notion of idealized knowledge. An AGI $X$ should most certainly
+makes a terrible notion of idealized knowledge. An AGI should most certainly
 know the axioms of PA, and should most certainly be capable of the
-minimal logical reasoning needed to conlcude $\phi$ from $\psi$ and $\psi\rightarrow\phi$.
+minimal logical reasoning needed to conclude $\phi$ from $\psi$ and $\psi\rightarrow\phi$.
 And the way we have established the unsuitability of Definition \ref{instantlyknowsdefn}
 is nicely anticipated by the words of Aristotle quoted at the beginning of this subsection,
 where the philosopher seems to explicitly identify knowledge with
@@ -575,9 +575,9 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     in the resulting list, would be computably enumerable.''
     This is not just plausible but obvious, since $X$ himself
     is an AGI and thus presumably a computer.
-    If $\Phi$ is the above EA-schema, then $K(\Phi)$ is \emph{Reinhardt's
+    If $\Phi$ is the above EA-schema, then the schema $K(\Phi)$ is \emph{Reinhardt's
     strong mechanistic thesis}. Reinhardt conjectured that his strong mechanistic
-    thesis was consistent with basic axioms about knowledge (i.e., that it is
+    thesis is consistent with basic axioms about knowledge (i.e., that it is
     possible for a knowing machine to know that it is a machine).
     This conjecture was proved by Carlson \cite{carlson} using sophisticated
     structural results about the ordinals \cite{carlson1999}.
@@ -596,13 +596,13 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   Carlson \cite{carlson} glosses this schema in English as:
   ``I am a Turing machine, and I know which one.''
   Reinhardt showed that this schema is \emph{not} consistent with basic
-  axioms about knowledge. Following Carlson's gloss, this strongly
-  suggests that it is impossible for an AGI to know its own code\footnote{We have
+  axioms about knowledge. Following Carlson's gloss, this shows
+  that it is impossible for an AGI to know its own code\footnote{We have
   pointed out elsewhere \cite{alexander2014machine} that Reinhardt
   implicitly assumes that the knower knows its own truthfulness, and that
   it is possible for a knowing machine to know its own code if it is allowed to
   be ignorant of its own truthfulness, despite still being truthful.
-  See \cite{aldini2015theory} and \cite{aldini2015self} for some additional discussion.}.
+  See \cite{aldini2015self} and \cite{aldini2015theory} for some additional discussion.}.
 \end{example}
 
 \begin{example}
@@ -616,7 +616,9 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   \]
   where $E(e,x,y)$ is an EA-formula which expresses that the $e$th Turing machine
   outputs $y$ on input $x$.
-  This becomes:
+  For simplicity, we will just consider when $x$ and $y$ are the lone free variables
+  of $\phi$.
+  Then the schema becomes:
   \begin{itemize}
     \item
     ``Suppose $X$ were commanded to enumerate his EA-knowledge.
@@ -697,16 +699,15 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   \[
     I(I(\phi)) \rightarrow I(I(I(\phi))).
   \]
-  This becomes: ``If, when $X$ is commanded to enumerate his knowledge in the
-  language EA (or some similar standard mathematical language with a knowledge
-  operator), $X$ would not enumerate either $I(\phi)$ nor $\neg I(\phi)$ in
-  the resulting enumeration, then $X$ would also not enumerate either $I(I(\phi))$
-  nor $\neg I(I(\phi))$ in the resulting enumeration.''
+  This becomes: ``If, when $X$ is commanded to enumerate his EA-knowledge,
+  $X$ would include neither $I(\phi)$ nor $\neg I(\phi)$ in
+  the resulting enumeration, then $X$ would also include neither $I(I(\phi))$
+  nor $\neg I(I(\phi))$.''
 \end{example}
 
 \begin{example}
   (Belief and higher-order ignorance) Fano and Graziani have suggested \cite{fano} the
-  following axiom which would relate belief ($B$) with higher-order ignorance
+  following schema which would relate belief ($B$) with higher-order ignorance
   (where, as in Example \ref{fineexample}, $I(\phi)$ is shorthand for
   $\neg K(\phi)\wedge \neg K(\neg\phi)$):
   \[
@@ -720,7 +721,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
   if and only if $X$ would include $\phi$ in the resulting list if $X$ were
   commanded:
   ``Enumerate all the $\mathscr L$-sentences which you believe.''
-  This proposed axiom of Fano and Graziani would then become:
+  This proposed schema of Fano and Graziani would then become:
   ``If, when commanded to enumerate his beliefs in $\mathscr L$,
   $X$ would include $\neg\phi$ (if $\phi$ is true) or $\phi$ (if $\phi$ is false),
   then, when commanded to enumerate his knowledge in $\mathscr L$,
