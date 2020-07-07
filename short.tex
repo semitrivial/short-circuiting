@@ -233,28 +233,6 @@ materially the two definitions have the same result.
   $X$ is a deterministic machine.
 \end{proof}
 
-The reader might wonder why we would not further simplify Definition \ref{maindef}
-and declare that $X$ knows $\phi$ if and only if $X$ would respond ``yes'' if
-$X$ were asked, ``Do you know $\phi$?''
-The reason why this would not work is because for certain mathematical statements,
-the answer may depend on how long the AGI is allowed to think about the question.
-For example, suppose $n$ is a natural number and we ask the AGI, ``Do you know that
-the $n$th Turing machine eventually halts when run on empty input?'' For certain
-particular values of $n$, the AGI might be able to answer this question in ad hoc
-ways, but in general, by the unsolvability of the Halting Problem, the best the
-AGI can do is to run the $n$th Turing machine for some time and see experimentally
-whether it halts in that time. The AGI might
-run a Turing machine for a million steps and suspect that it does not halt,
-but cannot rule out the possibility that it would halt after \emph{two} million steps.
-Thus, if we demand a simple yes-no answer to ``Do you know that the $n$th Turing machine
-eventually halts when run on empty input?'', the answer will only partly be about
-what the AGI knows, and partly will be about how patient the AGI is (or how
-quickly the AGI performs calculations). By designing Definition \ref{maindef} the way
-we have, we allow the AGI to take as long as it likes, dividing up its
-calculations in parallel (a process known as \emph{dovetailing}) so that it can
-effectively spend unbounded amounts of time pondering the truth value of one difficult
-formula without putting every other formula on hold.
-
 
 \subsection{Non-Circularity of Definition \ref{maindef}}
 \label{noncircularsubsection}
@@ -318,6 +296,39 @@ $X$ would (when so commanded)
 output $K(1+1=2)$ if and only if $X$ knows (in his own internal sense of the word ``know'')
 that he knows (in his own internal sense of the word ``know'') $1+1=2$.
 \end{example}
+
+\subsection{A Simpler Definition, and Why It Does Not Work}
+
+\begin{quote}
+  ``It is difficult to be aware of whether one knows or not.
+  For it is difficult to be aware of whether we know from the
+  principles of a thing or not---and that is what knowing is.
+  (...) I call a principle in each genus those which it is
+  not possible to prove to be.''
+  ---Aristotle \cite{aristotle}
+\end{quote}
+
+The reader might wonder why we would not further simplify Definition \ref{maindef}
+and declare that $X$ knows $\phi$ if and only if $X$ would respond ``yes'' if
+$X$ were asked, ``Do you know $\phi$?''
+The reason why this would not work is because for certain mathematical statements,
+the answer may depend on how long the AGI is allowed to think about the question.
+For example, suppose $n$ is a natural number and we ask the AGI, ``Do you know that
+the $n$th Turing machine eventually halts when run on empty input?'' For certain
+particular values of $n$, the AGI might be able to answer this question in ad hoc
+ways, but in general, by the unsolvability of the Halting Problem, the best the
+AGI can do is to run the $n$th Turing machine for some time and see experimentally
+whether it halts in that time. The AGI might
+run a Turing machine for a million steps and suspect that it does not halt,
+but cannot rule out the possibility that it would halt after \emph{two} million steps.
+Thus, if we demand a simple yes-no answer to ``Do you know that the $n$th Turing machine
+eventually halts when run on empty input?'', the answer will only partly be about
+what the AGI knows, and partly will be about how patient the AGI is (or how
+quickly the AGI performs calculations). By designing Definition \ref{maindef} the way
+we have, we allow the AGI to take as long as it likes, dividing up its
+calculations in parallel (a process known as \emph{dovetailing}) so that it can
+effectively spend unbounded amounts of time pondering the truth value of one difficult
+formula without putting every other formula on hold.
 
 \section{Quantified Modal Logic}
 \label{quantifiedsection}
