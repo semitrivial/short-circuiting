@@ -223,6 +223,7 @@ materially the two definitions have the same result.
 \end{proof}
 
 \begin{theorem}
+\label{retheorem}
   Let $X$ be an AGI.
   The set of EA-sentences $\phi$ such that $X$ knows $\phi$ (based on
   Definition \ref{maindef}) is computably enumerable.
@@ -239,7 +240,8 @@ materially the two definitions have the same result.
 
 \begin{quote}
   `What is said by a speaker (what she meant to say, her ``meaning-intention'')
-  is understood or misunderstood by a hearer (``an interpreter'').'
+  is understood or misunderstood by a
+  hearer (``an interpreter'').'
   ---Albrecht Wellmer \cite{wellmer2014skepticism}
 \end{quote}
 
@@ -304,31 +306,112 @@ that he knows (in his own internal sense of the word ``know'') $1+1=2$.
   For it is difficult to be aware of whether we know from the
   principles of a thing or not---and that is what knowing is.
   (...) I call a principle in each genus those which it is
-  not possible to prove to be.''
-  ---Aristotle \cite{aristotle}
+  not possible to prove to be.'' ---Aristotle \cite{aristotle}
 \end{quote}
 
 The reader might wonder why we would not further simplify Definition \ref{maindef}
 and declare that $X$ knows $\phi$ if and only if $X$ would respond ``yes'' if
 $X$ were asked, ``Do you know $\phi$?''
-The reason why this would not work is because for certain mathematical statements,
-the answer may depend on how long the AGI is allowed to think about the question.
-For example, suppose $n$ is a natural number and we ask the AGI, ``Do you know that
-the $n$th Turing machine eventually halts when run on empty input?'' For certain
-particular values of $n$, the AGI might be able to answer this question in ad hoc
-ways, but in general, by the unsolvability of the Halting Problem, the best the
-AGI can do is to run the $n$th Turing machine for some time and see experimentally
-whether it halts in that time. The AGI might
-run a Turing machine for a million steps and suspect that it does not halt,
-but cannot rule out the possibility that it would halt after \emph{two} million steps.
-Thus, if we demand a simple yes-no answer to ``Do you know that the $n$th Turing machine
-eventually halts when run on empty input?'', the answer will only partly be about
-what the AGI knows, and partly will be about how patient the AGI is (or how
-quickly the AGI performs calculations). By designing Definition \ref{maindef} the way
-we have, we allow the AGI to take as long as it likes, dividing up its
-calculations in parallel (a process known as \emph{dovetailing}) so that it can
-effectively spend unbounded amounts of time pondering the truth value of one difficult
-formula without putting every other formula on hold.
+We will argue that this would be a poor candidate for an idealized knowledge
+definition.
+
+\begin{definition}
+\label{instantlyknowsdefn}
+  If $X$ is an AGI and $\phi$ is an EA-sentence, say that $X$ \emph{quick-knows}
+  $\phi$ if and only if $X$ would respond ``yes'' if $X$ were asked,
+  ``Do you know $\phi$? (Yes or no)''.
+\end{definition}
+
+The following should be contrasted with Theorem \ref{retheorem}.
+
+\begin{theorem}
+\label{computabletheorem}
+  Let $X$ be an AGI.
+  The set of EA-sentences $\phi$ such that $X$ quick-knows $\phi$ is computable.
+\end{theorem}
+
+\begin{proof}
+  This follows from our assumption (in Section \ref{agisection}) that
+  $X$ is a deterministic machine.
+\end{proof}
+
+By Theorem \ref{computabletheorem}, it seems that if we used
+Definition \ref{instantlyknowsdefn} as a knowledge definition, it would
+contradict Aristotle's claim that
+``it is difficult to be aware of whether one
+knows or not''. It is much more plausible that knowledge be \emph{computably enumerable}
+(as in Theorem \ref{retheorem}) than that knowledge be \emph{computable}.
+A prototypical example of a process which is computably enumerable but not computable
+would be: enumerating the consequences of Peano arithmetic\footnote{We assume Peano
+arithmetic is true.}.
+Said consequences cannot be computable, lest they could be used to solve the Halting
+Problem (a Turing machine halts if and only if Peano arithmetic proves that it halts).
+
+\begin{theorem}
+\label{badnesstheorem}
+Let $X$ be an AGI and assume $X$ does not quick-know any falsehoods.
+At least one of the following is true:
+\begin{enumerate}
+  \item There is an axiom of Peano arithmetic which $X$ does not quick-know.
+  \item There exist sentences $\phi$ and $\psi$, in the language of Peano arithmetic,
+  such that $X$ quick-knows $\psi$ and $X$ quick-knows $\psi\rightarrow\phi$,
+  but $X$ does not quick-know $\phi$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  It is well-known that a sentence $\phi$ is provable from Peano arithmetic if and only
+  if there is a sequence $\phi_1,\ldots,\phi_n$ such that:
+  \begin{enumerate}
+    \item $\phi_n$ is $\phi$.
+    \item For every $i$, either $\phi_i$ is an axiom of Peano arithmetic, or else there
+    are $j,k<i$ such that $\phi_k$ is $\phi_j\rightarrow \phi_i$.
+  \end{enumerate}
+  (Loosely speaking: proofs from Peano arithmetic can be carried out using no rule
+  of inference besides Modus Ponens.)
+  For any formula $\phi$ which Peano arithmetic proves, let $|\phi|$ be the smallest
+  $n$ such that there is a sequence $\phi_1,\ldots,\phi_n$ as above.
+
+  Call a PA-sentence $\phi$ \emph{elusive} if PA proves $\phi$ but $X$ does not
+  quick-know $\phi$. By Theorem \ref{computabletheorem}, the fact that $X$ does
+  not quick-know any falsehoods, and the unsolvability of the Halting Problem,
+  it follows that some elusive $\phi$ exists---otherwise, to computably determine whether
+  or not a given Turing machine $M$ halts, we could simply ask $X$, ``Do you know
+  Turing machine $M$ halts? (Yes or no)''.
+
+  Since some elusive $\phi$ exists, there exists an elusive $\phi$ such that $|\phi|$
+  is as small as possible---in other words, such that $|\phi|\leq |\psi|$ for every
+  elusive $\psi$.
+
+  Case 1: $\phi$ is an axiom of Peano arithmetic. Then condition (1) of the theorem is
+  satisfied, as desired.
+
+  Case 2: $\phi$ is not an axiom of Peano arithmetic.
+  Let $\phi_1,\ldots,\phi_{|\phi|}$ be as in the first paragraph of this proof
+  (so $\phi_{|\phi|}$ is $\phi$).
+  Then since $\phi$ is not an axiom of Peano arithmetic,
+  there must be $j,k<|\phi|$ such that $\phi_k$ is $\phi_j\rightarrow \phi_{|\phi|}$.
+  Now, the sequence $\phi_1,\ldots,\phi_k$ witnesses that Peano arithmetic
+  proves $\phi_k$ and $|\phi_k|=k<|\phi|$; and the
+  sequence $\phi_1,\ldots,\phi_j$ witnesses that Peano arithmetic proves
+  $\phi_j$ and $|\phi_j|=j<|\phi|$.
+  Thus, since $\phi$ was chosen to be elusive with $|\phi|$ as small as possible,
+  it follows that $\phi_k$ and $\phi_j$ are not elusive.
+  Thus, $X$ quick-knows $\phi_j$, and $X$ quick-knows $\phi_k$,
+  but $\phi_k$ is $\phi_j\rightarrow\phi$. Thus condition (2) of the theorem is
+  satisfied, as desired.
+\end{proof}
+
+Theorem \ref{badnesstheorem} clearly shows that Definition \ref{instantlyknowsdefn}
+makes a terrible notion of idealized knowledge. An AGI $X$ should most certainly
+know the axioms of Peano arithmetic, and should most certainly be capable of the
+minimal logical reasoning needed to conlcude $\phi$ from $\psi$ and $\psi\rightarrow\phi$.
+And the way we have established the unsuitability of Definition \ref{instantlyknowsdefn}
+is nicely anticipated by the words of Aristotle quoted at the beginning of this subsection,
+where the philosopher seems to explicitly identify knowledge with
+knowledge from ``principles'' (which we would translate as ``axioms'').
+
+
 
 \section{Quantified Modal Logic}
 \label{quantifiedsection}
