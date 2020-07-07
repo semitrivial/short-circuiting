@@ -220,6 +220,7 @@ materially the two definitions have the same result.
   Since we have assumed (in Section \ref{agisection}) that $X$ is obedient,
   $X$ would output
   $\phi$ in the resulting list if and only if (2).
+  \qed
 \end{proof}
 
 \begin{theorem}
@@ -232,6 +233,7 @@ materially the two definitions have the same result.
 \begin{proof}
   This follows from our assumption (in Section \ref{agisection}) that
   $X$ is a deterministic machine.
+  \qed
 \end{proof}
 
 
@@ -311,7 +313,7 @@ that he knows (in his own internal sense of the word ``know'') $1+1=2$.
 
 The reader might wonder why we would not further simplify Definition \ref{maindef}
 and declare that $X$ knows $\phi$ if and only if $X$ would respond ``yes'' if
-$X$ were asked, ``Do you know $\phi$?''
+$X$ were asked: ``Do you know $\phi$? (Yes or no)''.
 We will argue that this would be a poor candidate for an idealized knowledge
 definition.
 
@@ -333,6 +335,7 @@ The following should be contrasted with Theorem \ref{retheorem}.
 \begin{proof}
   This follows from our assumption (in Section \ref{agisection}) that
   $X$ is a deterministic machine.
+  \qed
 \end{proof}
 
 By Theorem \ref{computabletheorem}, it seems that if we used
@@ -343,33 +346,33 @@ knows or not''. It is much more plausible that knowledge be \emph{computably enu
 (as in Theorem \ref{retheorem}) than that knowledge be \emph{computable}.
 A prototypical example of a process which is computably enumerable but not computable
 would be: enumerating the consequences of Peano arithmetic\footnote{We assume Peano
-arithmetic is true.}.
+arithmetic is true.} (hereafter PA).
 Said consequences cannot be computable, lest they could be used to solve the Halting
-Problem (a Turing machine halts if and only if Peano arithmetic proves that it halts).
+Problem (because a Turing machine halts if and only if PA proves that it halts).
 
 \begin{theorem}
 \label{badnesstheorem}
 Let $X$ be an AGI and assume $X$ does not quick-know any falsehoods.
 At least one of the following is true:
 \begin{enumerate}
-  \item There is an axiom of Peano arithmetic which $X$ does not quick-know.
-  \item There exist sentences $\phi$ and $\psi$, in the language of Peano arithmetic,
+  \item There is an axiom of PA which $X$ does not quick-know.
+  \item There exist PA-sentences $\phi$ and $\psi$
   such that $X$ quick-knows $\psi$ and $X$ quick-knows $\psi\rightarrow\phi$,
   but $X$ does not quick-know $\phi$.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  It is well-known that a sentence $\phi$ is provable from Peano arithmetic if and only
+  It is well-known that a sentence $\phi$ is provable from PA if and only
   if there is a sequence $\phi_1,\ldots,\phi_n$ such that:
   \begin{enumerate}
     \item $\phi_n$ is $\phi$.
-    \item For every $i$, either $\phi_i$ is an axiom of Peano arithmetic, or else there
+    \item For every $i$, either $\phi_i$ is an axiom of PA, or else there
     are $j,k<i$ such that $\phi_k$ is $\phi_j\rightarrow \phi_i$.
   \end{enumerate}
-  (Loosely speaking: proofs from Peano arithmetic can be carried out using no rule
+  (Loosely speaking: proofs from PA can be carried out using no rule
   of inference besides Modus Ponens.)
-  For any formula $\phi$ which Peano arithmetic proves, let $|\phi|$ be the smallest
+  For any formula $\phi$ which PA proves, let $|\phi|$ be the smallest
   $n$ such that there is a sequence $\phi_1,\ldots,\phi_n$ as above.
 
   Call a PA-sentence $\phi$ \emph{elusive} if PA proves $\phi$ but $X$ does not
@@ -383,28 +386,29 @@ At least one of the following is true:
   is as small as possible---in other words, such that $|\phi|\leq |\psi|$ for every
   elusive $\psi$.
 
-  Case 1: $\phi$ is an axiom of Peano arithmetic. Then condition (1) of the theorem is
+  Case 1: $\phi$ is an axiom of PA. Then condition (1) of the theorem is
   satisfied, as desired.
 
-  Case 2: $\phi$ is not an axiom of Peano arithmetic.
+  Case 2: $\phi$ is not an axiom of PA.
   Let $\phi_1,\ldots,\phi_{|\phi|}$ be as in the first paragraph of this proof
   (so $\phi_{|\phi|}$ is $\phi$).
-  Then since $\phi$ is not an axiom of Peano arithmetic,
+  Then since $\phi$ is not an axiom of PA,
   there must be $j,k<|\phi|$ such that $\phi_k$ is $\phi_j\rightarrow \phi_{|\phi|}$.
-  Now, the sequence $\phi_1,\ldots,\phi_k$ witnesses that Peano arithmetic
+  Now, the sequence $\phi_1,\ldots,\phi_k$ witnesses that PA
   proves $\phi_k$ and $|\phi_k|=k<|\phi|$; and the
-  sequence $\phi_1,\ldots,\phi_j$ witnesses that Peano arithmetic proves
+  sequence $\phi_1,\ldots,\phi_j$ witnesses that PA proves
   $\phi_j$ and $|\phi_j|=j<|\phi|$.
   Thus, since $\phi$ was chosen to be elusive with $|\phi|$ as small as possible,
   it follows that $\phi_k$ and $\phi_j$ are not elusive.
   Thus, $X$ quick-knows $\phi_j$, and $X$ quick-knows $\phi_k$,
   but $\phi_k$ is $\phi_j\rightarrow\phi$. Thus condition (2) of the theorem is
   satisfied, as desired.
+  \qed
 \end{proof}
 
 Theorem \ref{badnesstheorem} clearly shows that Definition \ref{instantlyknowsdefn}
 makes a terrible notion of idealized knowledge. An AGI $X$ should most certainly
-know the axioms of Peano arithmetic, and should most certainly be capable of the
+know the axioms of PA, and should most certainly be capable of the
 minimal logical reasoning needed to conlcude $\phi$ from $\psi$ and $\psi\rightarrow\phi$.
 And the way we have established the unsuitability of Definition \ref{instantlyknowsdefn}
 is nicely anticipated by the words of Aristotle quoted at the beginning of this subsection,
@@ -425,9 +429,9 @@ Carlson \cite{carlson}.
   We define so-called \emph{numerals}, which
   are EA-terms, one numeral $\overline n$ for each natural number $n\in\mathbb N$,
   by induction: $\overline 0$ is defined to be $0$ (the constant symbol for zero from
-  Peano Arithmetic) and
+  PA) and
   for every $n\in\mathbb N$, $\overline{n+1}$ is defined to be $S(\overline n)$
-  (where $S$ is the successor symbol from Peano Arithmetic).
+  (where $S$ is the successor symbol from PA).
 \end{definition}
 
 For example, the numeral $\overline 3$ is the term $S(S(S(0)))$.
