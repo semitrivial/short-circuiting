@@ -248,9 +248,16 @@ formula without putting every other formula on hold.
 \subsection{Non-Circularity of Definition \ref{maindef}}
 \label{noncircularsubsection}
 
+\begin{quote}
+  `What is said by a speaker (what she meant to say, her ``meaning-intention'')
+  is understood or misunderstood by a hearer (``an interpreter'').'
+  ---Albrecht Wellmer \cite{wellmer2014skepticism}
+\end{quote}
+
 Definition \ref{maindef} is non-circular because an AGI's response to an English
 command only depends on how the AGI understands the words in that command, not
-on how \emph{we} understand the words in that command. Recall from Section \ref{agisection}
+on how \emph{we} (the speakers) understand those words.
+Recall from Section \ref{agisection}
 that we are assuming an AGI is a deterministic machine which outputs English words
 based on sensory inputs from its environment. Those outputs depend \emph{only} on those
 environmental inputs, and not on any decisions made by philosophers.
@@ -261,14 +268,14 @@ we changed Definition \ref{maindef} to define what it means for $X$ to ``grok'' 
 $\phi$, rather that to ``know'' sentence $\phi$ (without changing the command itself).
 In other words, we could define that $X$ ``groks'' $\phi$ if and only if $X$ would include
 $\phi$ in the list of sentences that would result if $X$ were commanded,
-``Enumerate, in the language $\mathscr L$, every sentence,
-  expressible in $\mathscr L$, which you know.''
+  \[
+  \mbox{$``Enumerate all the EA-sentences which you know.''$}
+  \]
 This would make the non-circularity clearer, because the word ``grok'' does not appear
-anywhere in the definition. But the circularity of the definition should not depend on
-what word we assign to the definee.
+anywhere in the definition.
 
 For the sake of completion, we will further illustrate the non-circularity of
-Definition \ref{maindef} with three examples.
+Definition \ref{maindef} with two examples.
 \begin{itemize}
   \item
   (The color blurple) Bob could (without Alice's awareness) define ``blurple'' to be the
@@ -277,12 +284,6 @@ Definition \ref{maindef} with three examples.
   and a blue card, and demand: ``Quick, choose the blurple card! Do it now, no time
   for questions!'' There is nothing circular about this, because Alice's choice
   cannot depend on a definition which Alice is unaware of.
-  \item
-  (Bound variables) In mathematical logic, it is perfectly legal and non-circular to
-  define $x$ to be the unique element of $\mathbb N$ satisfying the formula
-  \[(x=0)\wedge \exists x(x=1).\]
-  This defines $x$ as $0$. The subformula
-  $\exists x(x=1)$ is true regardless of which formula this subformula is a subformula of.
   \item
   (Zero to the zero) If asked to compute $0^0$, some calculators output $1$, and some
   output an error message or say the result is undefined\footnote{Which is incorrect---see
