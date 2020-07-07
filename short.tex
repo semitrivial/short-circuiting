@@ -36,14 +36,15 @@ the knowledge of an agent with Artificial General Intelligence (that is,
 the knowledge of an AGI),
 a pragmatic way to define such an agent's knowledge (in the language
 of Epistemic Arithmetic (EA)) is as follows.
-We declare the AGI to know a certain EA-statement
-if and only if, when commanded
-(in plain English) to enumerate all the EA-statements that it knows, said AGI
-would include said statement in the resulting enumeration.
+We declare an AGI to know a certain EA-statement $\phi$
+if and only if that AGI would include $\phi$ in the resulting
+enumeration if that AGI were commanded:
+``Enumerate all the EA-sentences which you know.''
 This definition is non-circular because an AGI, being capable of
 practical English communication, is capable of understanding the everyday
 English word ``know'' independently of how any philosopher formally
-defines knowledge.
+defines knowledge (we elaborate further on the non-circularity of this
+circular-looking definition within this paper).
 This elegantly solves the problem that different AGIs may have
 very different internal knowledge definitions and yet we want
 to be able to study knowledge of AGIs in general, without having
@@ -73,14 +74,21 @@ a simple answer within that narrow context:
 we propose a definition of what it means for a suitably idealized AGI to know
 a mathematical sentence\footnote{By a \emph{sentence}, we mean a formula with
 no free variables. Thus, $x^2>0$ is not a sentence, but
-$\forall x (x^2>0)$ is.}. Our proposed definition is short and
-sweet: we say that
-an AGI knows a mathematical sentence (in some standard mathematical language $\mathscr L$)
-if and only if that sentence would be among the sentences which that AGI would
+$\forall x (x^2>0)$ is.} in the language of Epistemic Arithmetic \cite{shapiro} (hereafter
+EA; EA
+consists of
+the language of Peano Arithmetic along with an additional modal operator $K$ for
+knowledge---for example, the EA-sentence $K(1+1=2)$ might be read ``I know $1+1=2$''
+or ``the knower knows $1+1=2$''). Our
+proposed definition is short and
+sweet (at the price of appearing deceptively circular): we say that
+an AGI knows an EA-sentence $\phi$
+if and only if $\phi$ would be among the sentences which that AGI would
 enumerate if that AGI were commanded:
-``Enumerate, in the language $\mathscr L$, every mathematical sentence which
-is both expressible in $\mathscr L$ and part of your own mathematical knowledge.''
-Note that this is non-circular because an AGI, being capable of practical English
+\[
+\mbox{$``Enumerate all the EA-sentences which you know.''$}
+\]
+This is non-circular because an AGI, being capable of practical English
 communication, is therefore capable of understanding the everyday English word
 ``know'' in the above command, independently of how any philosopher formally
 defines knowledge. We discuss this further in Subsection \ref{noncircularsubsection}.
@@ -90,20 +98,19 @@ for methodological purposes---it would not
 directly be helpful in the quest to construct an AGI. Instead, it is intended for
 the purpose of understanding the properties of AGI (some of which
 we discuss in Section \ref{appsection}). We hope that a better
-understanding of theoretical properties of AGIs will indirectly help in the eventual
-creation of same.
+understanding of theoretical properties of AGIs will indirectly help in their
+creation someday.
 
 The structure of this paper is as follows.
 \begin{itemize}
   \item In Section \ref{agisection} we discuss the AGIs for whose knowledge we are
   attempting to propose a definition.
   \item In Section \ref{mainsection} we propose a knowledge definition for
-  AGIs for sentences in some standard mathematical language.
+  AGIs for EA-sentences.
   \item In Section \ref{quantifiedsection} we extend our knowledge definition
-  to formulas with free variables (when the
-  language in question is arithmetical).
+  to formulas with free variables.
   \item In Section \ref{appsection} we use this knowledge definition as a bridge
-  to allow some results from mathematical logic to inform AGI.
+  to translate some ideas from mathematical logic into the field of AGI.
   \item In Section \ref{conclusionsection} we summarize and make concluding remarks.
 \end{itemize}
 
