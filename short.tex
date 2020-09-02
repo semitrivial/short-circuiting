@@ -617,7 +617,11 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     EA-schema
     \[\exists e \forall x ( K(\phi) \leftrightarrow x\in W_e)\]
     as a formalization of the mechanicalness of the knower. Here, $W_e$
-    is the $e$th computably enumerable set of natural numbers ($W_e$ can also
+    is the $e$th computably enumerable set of natural numbers\footnote{It can be
+    shown that $W_e$ is definable in the language of Peano arithmetic, therefore we
+    can use expressions like ``$x\in W_e$'' in EA-formulas, as shorthand for more
+    complicated formulas using said definition. We will use this same trick in later
+    examples without explicit mention.} ($W_e$ can also
     be thought of as the set of naturals enumerated by the $e$th Turing machine).
     For simplicity, consider the case where $x$ is the lone free variable
     of $\phi$. Then in terms of Definition \ref{maindefextension}, the schema
