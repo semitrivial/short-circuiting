@@ -574,6 +574,14 @@ knowledge in EA.
 
 In this section, we will look at some formulas about knowledge and interpret them in the
 context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
+We begin with some basic axioms of knowledge. While the following axioms seem plausible,
+we do not claim that every AGI must satisfy them. Rather, they serve to classify AGIs:
+for each axiom schema, one can speak of AGIs who satisfy that axiom schema, or one can
+speak of AGIs who do not satisfy it. Our objective here is not to declare that AGIs
+should satisfy any particular axiom, rather, our objective is to clarify (using
+Definitions \ref{maindef} and \ref{maindefextension}) what it means for an AGI to
+satisfy said axiom---to clarify it in a way which is independent of the AGI's own
+internal definition of knowledge.
 
 \begin{example}
   (Basic axioms of knowledge) The following axiom schemas, in the language
@@ -583,29 +591,17 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     \item (E1) $K(\phi)$ whenever $\phi$ is valid (i.e., a tautology).
     Interpreted for an AGI $X$ using Definition \ref{maindef}, this becomes:
     ``If commanded to enumerate his knowledge in EA, $X$ will include
-    all EA-tautologies in the resulting list.'' This is plausible
-    because the set of tautologies in any computable language is computable,
-    and an AGI should have no problem enumerating them.
+    all EA-tautologies in the resulting list.''
     \item (E2) $K(\phi\rightarrow\psi)\rightarrow K(\phi)\rightarrow K(\psi)$.
     This becomes: ``If commanded to enumerate his knowledge in EA,
     if $X$ would include $\phi\rightarrow\psi$ and if $X$ would also include
-    $\phi$, then $X$ would also include $\psi$.'' This is plausible because
-    an AGI should certainly be capable of basic logical reasoning.
+    $\phi$, then $X$ would also include $\psi$.''
     \item (E3) $K(\phi)\rightarrow\phi$. This becomes: ``If commanded to enumerate
     his knowledge in EA, the resulting statements $X$ enumerates
-    will be true.'' This is plausible since knowledge is widely regarded as
-    having truthfulness as one of its requirements. Truthfulness is not a
-    requirement in the definition proposed in this paper, but for any particular
-    AGI, truthfulness is probably a requirement of that AGI's internal definition
-    of knowledge. There is no need to worry about the AGI being misinformed about
-    contingent facts about the physical world, because EA is a purely mathematical
-    language in which no such contingent facts are expressible.
+    will be true.''
     \item (E4) $K(\phi)\rightarrow K(K(\phi))$. This becomes: ``If commanded to
     enumerate his knowledge in EA, if $X$ would list $\phi$,
-    then $X$ would also list $K(\phi)$.'' This is plausible because presumably
-    when $X$ enumerates $\phi$ in response to the command, $X$ should
-    understand why he is enumerating $\phi$, namely because he knows $\phi$---so $X$
-    should therefore know that he knows $\phi$.
+    then $X$ would also list $K(\phi)$.''
   \end{itemize}
 \end{example}
 
@@ -619,8 +615,8 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     as a formalization of the mechanicalness of the knower. Here, $W_e$
     is the $e$th computably enumerable set of natural numbers\footnote{It can be
     shown that $W_e$ is definable in the language of Peano arithmetic, therefore we
-    can use expressions like ``$x\in W_e$'' in EA-formulas, as shorthand for more
-    complicated formulas using said definition. We will use this same trick in later
+    can use expressions like ``$x\in W_e$'' in EA-formulas as shorthand. We will
+    use this same convention in later
     examples without explicit mention.} ($W_e$ can also
     be thought of as the set of naturals enumerated by the $e$th Turing machine).
     For simplicity, consider the case where $x$ is the lone free variable
@@ -629,8 +625,6 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     ``If $X$ were commanded to enumerate his knowledge in the language of EA,
     then the set of $n\in\mathbb N$ such that $X$ would include $\phi(x|\overline n)$
     in the resulting list, would be computably enumerable.''
-    This is not just plausible but obvious, since $X$ himself
-    is an AGI and thus presumably a computer.
     If $\Phi$ is the above EA-schema, then the schema $K(\Phi)$ is \emph{Reinhardt's
     strong mechanistic thesis}. Reinhardt conjectured that his strong mechanistic
     thesis is consistent with basic axioms about knowledge (i.e., that it is
@@ -689,7 +683,7 @@ context of AGI in terms of Definitions \ref{maindef} and \ref{maindefextension}.
     by stating all at once that $\phi(x|\overline n)(y|\overline{f'(n)})$
     is true for all $n\in\mathbb N$.''
   \end{itemize}
-  This beautiful formalism seems to capture the AGI's self-reflection ability.
+  This beautiful formalism seems to capture a certain self-reflection ability.
   We can imagine the AGI dutifully enumerating statement after statement and
   as she goes, she discovers and predicts patterns in her own enumeration.
   If the above EA-schema is called $\Phi$, then the schema $K(\Phi)$ is what is called
