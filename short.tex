@@ -46,7 +46,7 @@ English word ``know'' independently of how any philosopher formally
 defines knowledge; we elaborate further on the non-circularity of this
 circular-looking definition.
 This elegantly solves the problem that different AGIs may have
-very different internal knowledge definitions and yet we want
+different internal knowledge definitions and yet we want
 to be able to study knowledge of AGIs in general, without having
 to study different AGIs separately just because they have separate
 internal knowledge definitions. Finally, we suggest how this
@@ -122,8 +122,8 @@ intelligence measure based on the AGI's knowledge, and this, too, often
 provokes the response ``What does it mean for an AGI to know something?''
 In Section \ref{appsection} we will consider these examples, and related
 examples from the same area, using our proposed definition to translate
-them into a more concrete form, in terms not of what the AGI knows but of
-how the AGI responds to stimuli.
+them into a more concrete form, not in terms of what the AGI knows, but
+in terms of the AGI's stimulus-responses.
 
 
 The structure of this paper is as follows.
@@ -173,7 +173,7 @@ we were to command the AGI in English, ``Tell us the value of $1+1$'',
 the AGI would respond in English and reply ``$2$'', or ``$1+1=2$'',
 or something along those lines\footnote{We assume the AGI explicitly follows
 commands (that it is ``under explicit control'', to use Yampolskiy's
-terminology \cite{yampolskiycontrol}).}
+terminology \cite{yampolskiycontrol}).}.
 
 We assume an AGI is capable of everyday English discussions
 which would cause no difficulty to a casual English speaker, even if
@@ -413,8 +413,8 @@ contradict Aristotle's claim that
 ``it is difficult to be aware of whether one
 knows or not''. It is more plausible that knowledge be \emph{computably enumerable}
 (as in Theorem \ref{retheorem}) than that knowledge be \emph{computable}.
-A prototypical example of a process which is computably enumerable but not computable
-is: enumerating the consequences of Peano arithmetic\footnote{We assume Peano
+A prototypical example of a set which is computably enumerable but not computable
+is: the consequences of Peano arithmetic\footnote{We assume Peano
 arithmetic is true.} (hereafter PA).
 Said consequences cannot be computable, lest they could be used to solve the Halting
 Problem (because a Turing machine halts if and only if PA proves that it halts).
@@ -614,7 +614,7 @@ of AGIs who do not satisfy it.
     $\phi$, then $X$ would also include $\psi$.''
     \item (E3) $K(\phi)\rightarrow\phi$. This becomes: ``If commanded to enumerate
     his knowledge in EA, the resulting statements $X$ enumerates
-    will be true.''
+    would be true.''
     \item (E4) $K(\phi)\rightarrow K(K(\phi))$. This becomes: ``If commanded to
     enumerate his knowledge in EA, if $X$ would list $\phi$,
     then $X$ would also list $K(\phi)$.''
@@ -624,7 +624,7 @@ of AGIs who do not satisfy it.
 Our purpose in Example \ref{basicexamples} is not to declare that an
 AGI should satisfy E1--E4. Rather, our goal is to translate these
 modal logical axioms into AGI language---note that the translations in quotation
-marks in Example \ref{basicexamples} do not really depend on
+marks in Example \ref{basicexamples} do not directly depend on
 the AGI's knowledge, but only on the AGI's stimulus-response.
 When studying AGI in broadest generality,
 even E3, the factivity of knowledge, might be questioned (certain AGIs might satisfy
@@ -654,10 +654,10 @@ like ``What does it mean to know something?''
     ``If $X$ were commanded to enumerate his knowledge in the language of EA,
     then the set of $n\in\mathbb N$ such that $X$ would include $\phi(x|\overline n)$
     in the resulting list, would be computably enumerable.''
-    If $\Phi$ is the universal closure\footnote{The \emph{universal closure} of
+    If $\Phi$ is the universal closure\footnote{A \emph{universal closure} of
     a formula $\phi$ is a sentence $\forall x_1\cdots\forall x_k\phi$,
     and the \emph{universal closure} of a schema of formulas is the schema
-    of the universal closures of the formulas.} of the above EA-schema, then the
+    of universal closures of those formulas.} of the above EA-schema, then the
     schema $K(\Phi)$ is \emph{Reinhardt's
     strong mechanistic thesis}. Reinhardt conjectured that his strong mechanistic
     thesis is consistent with basic axioms about knowledge (i.e., that it is
