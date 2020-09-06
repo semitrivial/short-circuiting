@@ -34,9 +34,9 @@ Alexander\inst{1}\orcidID{0000-0002-7930-110X}}
 We propose that, for the purpose of studying theoretical properties of
 the knowledge of an agent with Artificial General Intelligence (that is, 
 the knowledge of an AGI),
-a pragmatic way to define such an agent's knowledge (in the language
+a pragmatic way to define such an agent's knowledge (restricted to the language
 of Epistemic Arithmetic, or EA) is as follows.
-We declare an AGI to know a certain EA-statement $\phi$
+We declare an AGI to know an EA-statement $\phi$
 if and only if that AGI would include $\phi$ in the resulting
 enumeration if that AGI were commanded:
 ``Enumerate all the EA-sentences which you know.''
@@ -59,7 +59,7 @@ about mechanical knowing agents from mathematical logic.
 \section{Introduction}
 
 It is difficult to define knowledge, or what it means to know something.
-In Plato's dialogs, again and again Socrates asks people to define
+In Plato's dialogues, again and again Socrates asks people to define
 knowledge\footnote{Perhaps the best example being in the \emph{Theaetetus}
 \cite{theaetetus}.}, and no-one ever succeeds. Neither have philosophers
 reached consensus even in our own era \cite{sep-knowledge-analysis}.
@@ -87,7 +87,7 @@ knowledge. To be precise:
   for addition and multiplication.
   \item EA-formulas are built up from atomic EA-formulas (which are of the form $s=t$
   where $s$ and $t$ are EA-terms), propositional connectives
-  $\wedge,\vee,\rightarrow,\neg$, universal quantifiers $\forall x,\forall y,\ldots$,
+  $\rightarrow,\neg$, universal quantifiers $\forall x,\forall y,\ldots$,
   existential quantifiers $\exists x,\exists y,\ldots$, and modal operator $K$.
 \end{itemize}
 The EA-sentence $K(1+1=2)$ might be read ``I know $1+1=2$''
@@ -122,13 +122,14 @@ intelligence measure based on the AGI's knowledge, and this, too, often
 provokes the response ``What does it mean for an AGI to know something?''
 In Section \ref{appsection} we will consider these examples, and related
 examples from the same area, using our proposed definition to translate
-them into a more AGI-friendly form.
+them into a more concrete form, in terms not of what the AGI knows but of
+how the AGI responds to stimuli.
 
 
 The structure of this paper is as follows.
 \begin{itemize}
-  \item In Section \ref{agisection} we discuss the AGIs for whose knowledge we are
-  attempting to propose a definition.
+  \item In Section \ref{agisection} we discuss the AGIs whose knowledge we are
+  attempting to define.
   \item In Section \ref{mainsection} we propose a knowledge definition for
   AGIs for EA-sentences.
   \item In Section \ref{quantifiedsection} we extend our knowledge definition
@@ -170,7 +171,9 @@ by a Turing machine. We further assume the AGI can understand English
 commands and is capable of practical English communication. Thus, if
 we were to command the AGI in English, ``Tell us the value of $1+1$'',
 the AGI would respond in English and reply ``$2$'', or ``$1+1=2$'',
-or something along those lines.
+or something along those lines\footnote{We assume the AGI explicitly follows
+commands (that it is ``under explicit control'', to use Yampolskiy's
+terminology \cite{yampolskiycontrol}).}
 
 We assume an AGI is capable of everyday English discussions
 which would cause no difficulty to a casual English speaker, even if
@@ -181,14 +184,14 @@ just in order to answer a question like ``Do you know that $1+1=2$?'',
 and therefore neither should our AGI.
 
 We also assume an AGI is better than a casual human English speaker in certain ways.
-We assume an AGI would have no objections to performing exceedingly tedious
+We assume an AGI would have no objections to performing tedious
 tasks indefinitely, if so commanded. If we asked a casual human English speaker to
 begin computing and reciting all the prime numbers until further notice, and
 then we waited silently forever listening to the results, said human would eventually
-get tired of the endless tedium and would disobey our command (not to mention
-the fact that they might make arithmetic errors along the way). We assume an AGI
+get tired of the endless tedium and would disobey our command (and would probably
+make arithmetic errors along the way). We assume an AGI
 has no such limitations and would happily compute and recite prime numbers for
-all eternity, if so commanded---and would make no arithmetic mistakes. Of course,
+all eternity, if so commanded (without arithmetic mistakes). Of course,
 in reality the AGI would eventually run out of memory, terminate when the world ends,
 etc., but we are speaking of idealized AGI here and we
 intentionally ignore such possibilities, in the same way a Turing machine is
@@ -198,7 +201,7 @@ assumed to have infinite tape and infinite time to run.
 \section{An elegant definition of mathematical knowledge}
 \label{mainsection}
 
-The following definition might initially look circular, but we will argue that
+The following definition may initially look circular, but we will argue
 it is not.
 
 \begin{definition}
@@ -234,7 +237,7 @@ of a neural network, we should instead let the AI explain itself \cite{elton}.}.
 In Definition \ref{maindef} when we speak of what the AGI would do
 if given such a command, implicitly we intend this to be understood as what
 the AGI would do if given such a command and then allowed to respond to the
-command in isolation, without any outside distractions. An AGI could potentially
+command in isolation, without outside distractions. An AGI could potentially
 update its knowledge based on observations of the world, and so its knowledge
 might change from one time to the next: its knowledge at a given instant is defined
 by Definition \ref{maindef} to consist of what the AGI would enumerate if the
@@ -313,9 +316,9 @@ $\phi$ in the list of sentences that would result if $X$ were commanded,
   \text{``Enumerate all the EA-sentences which you know.''}
   \]
 This would make the non-circularity clearer, because the word ``grok'' does not appear
-anywhere in the definition.
+anywhere in the command.
 
-For the sake of completion, we will further illustrate the non-circularity of
+We will further illustrate the non-circularity of
 Definition \ref{maindef} with two examples.
 \begin{itemize}
   \item
@@ -408,10 +411,10 @@ By Theorem \ref{computabletheorem}, it seems that if we used
 Definition \ref{instantlyknowsdefn} as a knowledge definition, it would
 contradict Aristotle's claim that
 ``it is difficult to be aware of whether one
-knows or not''. It is much more plausible that knowledge be \emph{computably enumerable}
+knows or not''. It is more plausible that knowledge be \emph{computably enumerable}
 (as in Theorem \ref{retheorem}) than that knowledge be \emph{computable}.
 A prototypical example of a process which is computably enumerable but not computable
-would be: enumerating the consequences of Peano arithmetic\footnote{We assume Peano
+is: enumerating the consequences of Peano arithmetic\footnote{We assume Peano
 arithmetic is true.} (hereafter PA).
 Said consequences cannot be computable, lest they could be used to solve the Halting
 Problem (because a Turing machine halts if and only if PA proves that it halts).
@@ -472,9 +475,9 @@ At least one of the following is true:
   \qed
 \end{proof}
 
-Theorem \ref{badnesstheorem} clearly shows that Definition \ref{instantlyknowsdefn}
-makes a terrible notion of idealized knowledge. An AGI should most certainly
-know the axioms of PA, and should most certainly be capable of the
+Theorem \ref{badnesstheorem} shows that Definition \ref{instantlyknowsdefn}
+makes a poor notion of idealized knowledge. An AGI should certainly
+know the axioms of PA, and should certainly be capable of the
 minimal logical reasoning needed to conclude $\phi$ from $\psi$ and $\psi\rightarrow\phi$.
 And the way we have established the unsuitability of Definition \ref{instantlyknowsdefn}
 is nicely anticipated by the words of Aristotle quoted at the beginning of this subsection.
@@ -537,8 +540,7 @@ For example, the numeral $\overline 3$ is the term $S(S(S(0)))$.
 
 Armed with Definition \ref{maindefextension}, the Tarskian notion
 \cite{sep-tarski-truth} of
-truth can be extended to a complete semantics for
-knowledge in EA.
+truth can be extended to EA.
 
 \begin{example}
   Assume an AGI $X$ is clear from context.
@@ -593,11 +595,8 @@ in the Introduction, and closely related examples.
 
 Although the statements in the following example may seem plausible,
 we do not claim that every AGI must satisfy them. Rather, they serve to classify AGIs:
-for each axiom schema, one can speak of AGIs who satisfy that axiom schema, or one can
-speak of AGIs who do not satisfy it. Our objective here is not to declare that AGIs
-should satisfy any particular axiom, rather, our objective is to clarify (in a way which
-does not depend on the AGI's own internal definition of knowledge) what it would
-\emph{mean} for an AGI to satisfy said axiom.
+for each axiom schema, one can speak of AGIs who satisfy that axiom schema, and
+of AGIs who do not satisfy it.
 
 \begin{example}
 \label{basicexamples}
@@ -632,7 +631,7 @@ even E3, the factivity of knowledge, might be questioned (certain AGIs might sat
 it and other AGIs might not). By translating E3 into
 a concrete statement about the AGI's stimulus-response,
 we can talk about ``AGIs who satisfy E3'' or
-``AGIs who fail E3'', without having to answer hard questions
+``AGIs who fail E3'', without getting stuck on hard questions
 like ``What does it mean to know something?''
 
 \begin{example}
@@ -655,7 +654,11 @@ like ``What does it mean to know something?''
     ``If $X$ were commanded to enumerate his knowledge in the language of EA,
     then the set of $n\in\mathbb N$ such that $X$ would include $\phi(x|\overline n)$
     in the resulting list, would be computably enumerable.''
-    If $\Phi$ is the above EA-schema, then the schema $K(\Phi)$ is \emph{Reinhardt's
+    If $\Phi$ is the universal closure\footnote{The \emph{universal closure} of
+    a formula $\phi$ is a sentence $\forall x_1\cdots\forall x_k\phi$,
+    and the \emph{universal closure} of a schema of formulas is the schema
+    of the universal closures of the formulas.} of the above EA-schema, then the
+    schema $K(\Phi)$ is \emph{Reinhardt's
     strong mechanistic thesis}. Reinhardt conjectured that his strong mechanistic
     thesis is consistent with basic axioms about knowledge (i.e., that it is
     possible for a knowing machine to know that it is a machine).
@@ -669,7 +672,7 @@ like ``What does it mean to know something?''
 \label{reinhardtnegativeexample}
   (Reinhardt's absolute version of G\"odel's incompleteness theorem)
   If we vary the formula from Example \ref{smtexample} by requiring that the
-  knowing know the value of $e$, we obtain:
+  knower know the value of $e$, we obtain:
   \[
     \exists e K(\forall x ( K(\phi) \leftrightarrow x\in W_e)).
   \]
@@ -677,9 +680,9 @@ like ``What does it mean to know something?''
   ``I am a Turing machine, and I know which one.''
   Reinhardt showed that this schema is \emph{not} consistent with basic
   axioms about knowledge. Following Carlson's gloss, this shows
-  that it is impossible for an AGI to know its own code\footnote{We have
-  pointed out elsewhere \cite{alexander2014machine} that Reinhardt
-  implicitly assumes that the knower knows its own truthfulness, and that
+  that it is impossible for a suitably idealized AGI to know its own code\footnote{We have
+  pointed out elsewhere \cite{alexander2014machine} that (i) Reinhardt
+  implicitly assumes that the knower knows its own truthfulness; and (ii)
   it is possible for a knowing machine to know its own code if it is allowed to
   be ignorant of its own truthfulness, despite still being truthful.
   See \cite{aldini2015self} and \cite{aldini2015theory} for some additional discussion.}.
@@ -688,7 +691,7 @@ like ``What does it mean to know something?''
 \begin{example}
 \label{ectexample}
   (The Epistemic Church's Thesis \cite{flagg1985church} \cite{carlson2016collapsing})
-  The following EA-schema has been suggested as a kind of epistemic formalization
+  The following EA-schema has been suggested as an epistemic version
   of Church's Thesis:
   \[
   ( \forall x\exists y (K(\phi))  ) \rightarrow
@@ -713,10 +716,11 @@ like ``What does it mean to know something?''
     by stating all at once that $\phi(x|\overline n)(y|\overline{f'(n)})$
     is true for all $n\in\mathbb N$.''
   \end{itemize}
-  This beautiful formalism seems to capture a certain self-reflection ability.
+  This beautiful formalism expresses a certain self-reflection ability.
   We can imagine the AGI dutifully enumerating statement after statement and
   as she goes, she discovers and predicts patterns in her own enumeration.
-  If the above EA-schema is called $\Phi$, then the schema $K(\Phi)$ is what is called
+  If $\Phi$ is the universal closure of the above EA-schema, then the
+  schema $K(\Phi)$ is what is called
   the Epistemic Church's Thesis.
   Flagg proved that the Epistemic Church's Thesis is
   consistent with basic axioms of knowledge \cite{flagg1985church},
@@ -727,12 +731,13 @@ like ``What does it mean to know something?''
 \begin{remark}
   As far as I know, AGI has not yet received much attention in the mathematical logical
   literature. Instead, mathematical logicians tend to concern themselves with
-  \emph{knowing agents} or \emph{knowing machines}. Presumably, every AGI is a
+  \emph{knowing agents} or \emph{knowing machines}. Presumably, every
+  suitably idealized AGI is a
   knowing agent and a knowing machine, but certainly not every
   knowing agent (or knowing machine) is an AGI. Thus, in general,
   inconsistency results about knowing agents or knowing machines
   carry directly over to AGIs (if no knowing agent, or no knowing machine, can
-  satisfy some property, then in particular no AGI can either).
+  satisfy some property, then in particular no suitably idealized AGI can either).
   Consistency results do not generally carry over to AGIs (it may be possible for
   a knowing agent or a knowing machine to satisfy some property, but it might be
   that none of the knowing agents or knowing machines which satisfy that property
@@ -751,9 +756,9 @@ like ``What does it mean to know something?''
     know it is a machine.
     \item
     Reinhardt's absolute version of the incompleteness theorem
-    (Example \ref{reinhardtnegativeexample}) is an inconsitency result.
-    As such, it transfers over directly to AGI, proving (at least under
-    suitable idealization) that no AGI can know its own code\footnote{Or rather,
+    (Example \ref{reinhardtnegativeexample}) is an inconsistency result.
+    As such, it transfers over directly to AGI, proving that no suitably idealized
+    AGI can know its own code\footnote{Or rather,
     its own code and its
     own truthfulness---we have pointed out \cite{alexander2014machine} that
     Reinhardt implicitly
@@ -784,8 +789,8 @@ like ``What does it mean to know something?''
   ``The Intuitive Ordinal
   Intelligence of an AGI $X$ is the supremum of the set of ordinals $\alpha$
   such that $\alpha$ has some code $c$ such that $X$ would include $O(\overline c)$
-  in the resulting enumeration if we asked $X$ to enumerate all the statements
-  that he knows in $\mathscr L$.''
+  in the resulting enumeration if we asked $X$ to enumerate all the
+  $\mathscr L$-sentences that he knows.''
 \end{example}
 
 \section{Conclusion}
@@ -806,10 +811,10 @@ not; see Subsection \ref{noncircularsubsection}).
 In Definition \ref{maindefextension}
 we extended this to formulas with free variables, not just sentences.
 
-This one-size-fits-all knowledge definition sets the study of AGI knowledge
+This universal knowledge definition sets the study of AGI knowledge
 on a firmer theoretical footing. In Section \ref{appsection} we give examples
 of how our definition can serve as a bridge to translate knowledge-related
-results from mathematical logic into the realm of AGI.
+formulas from mathematical logic into the realm of AGI.
 
 \section*{Acknowledgments}
 
