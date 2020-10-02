@@ -688,45 +688,6 @@ like ``What does it mean to know something?''
   See \cite{aldini2015self} and \cite{aldini2015theory} for some additional discussion.}.
 \end{example}
 
-\begin{example}
-\label{ectexample}
-  (The Epistemic Church's Thesis \cite{flagg1985church} \cite{carlson2016collapsing})
-  The following EA-schema has been suggested as an epistemic version
-  of Church's Thesis:
-  \[
-  ( \forall x\exists y (K(\phi))  ) \rightarrow
-  ( \exists e K( \forall x\exists y ( E(e,x,y) \wedge \phi  )  )  ),
-  \]
-  where $E(e,x,y)$ is an EA-formula which expresses that the $e$th Turing machine
-  outputs $y$ on input $x$.
-  For simplicity, we will just consider when $x$ and $y$ are the lone free variables
-  of $\phi$.
-  Then the schema becomes:
-  \begin{itemize}
-    \item
-    ``Suppose $X$ were commanded to enumerate his EA-knowledge.
-    Assume there is a (not necessarily computable) function
-    $f:\mathbb N\to\mathbb N$ such that for every $n\in\mathbb N$,
-    $\phi(x|\overline n)(y|\overline{f(n)})$ is \emph{individually}
-    included in the resulting enumeration.
-    Then in fact there is a computable
-    function $f':\mathbb N\to\mathbb N$ (with Turing index $e$)
-    such that the enumeration includes
-    a \emph{single} statement which transcends all the aforementioned statements
-    by stating all at once that $\phi(x|\overline n)(y|\overline{f'(n)})$
-    is true for all $n\in\mathbb N$.''
-  \end{itemize}
-  This beautiful formalism expresses a certain self-reflection ability.
-  We can imagine the AGI dutifully enumerating statement after statement and
-  as she goes, she discovers and predicts patterns in her own enumeration.
-  If $\Phi$ is the universal closure of the above EA-schema, then the
-  schema $K(\Phi)$ is what is called
-  the Epistemic Church's Thesis.
-  Flagg proved that the Epistemic Church's Thesis is
-  consistent with basic axioms of knowledge \cite{flagg1985church},
-  and Carlson proved that it is also consistent with
-  Reinhardt's strong mechanistic thesis \cite{carlson2016collapsing}.
-\end{example}
 
 \begin{remark}
   As far as I know, AGI has not yet received much attention in the mathematical logical
@@ -763,13 +724,6 @@ like ``What does it mean to know something?''
     own truthfulness---we have pointed out \cite{alexander2014machine} that
     Reinhardt implicitly
     assumes the knower knows its own truthfulness.}.
-    \item
-    The epistemic Church's thesis (Example \ref{ectexample}) was proven to be
-    consistent with basic knowledge axioms.
-    Since not every knowing
-    machine is an AGI, this consistency result might not hold for AGIs.
-    But at least the result suggests evidence that
-    an AGI can satisfy the Epistemic Church's Thesis.
   \end{itemize}
 \end{remark}
 
