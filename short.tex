@@ -47,7 +47,7 @@ defines knowledge; we elaborate further on the non-circularity of this
 circular-looking definition.
 This elegantly solves the problem that different AGIs may have
 different internal knowledge definitions and yet we want
-to be able to study knowledge of AGIs in general, without having
+to study knowledge of AGIs in general, without having
 to study different AGIs separately just because they have separate
 internal knowledge definitions. Finally, we suggest how this
 definition of AGI knowledge can be used as a bridge which could
@@ -112,7 +112,7 @@ for an AGI to know something?'' For example, philosophers
 have long known that a suitably idealized mechanical
 knowing agent cannot know its own code and its own truthfulness\footnote{Often
 phrased more like ``cannot know its own code'', with knowledge-of-own-truthfulness
-simply taken for granted.}.
+taken for granted.}.
 But in informal conversations, we find
 AGI researchers struggle with this assertion, and we can hardly blame
 them, since, without agreeing what it means for the AGI to know something,
@@ -309,7 +309,7 @@ environmental inputs, and not on any decisions made by philosophers.
 If the reader wants to further convince themselves of the non-circularity of Definition
 \ref{maindef}, we need only point out that the apparent circularity would disappear if
 we changed Definition \ref{maindef} to define what it means for $X$ to ``grok'' sentence
-$\phi$, rather that to ``know'' sentence $\phi$ (without changing the command itself).
+$\phi$, rather than to ``know'' sentence $\phi$ (without changing the command itself).
 In other words, we could define that $X$ ``groks'' $\phi$ if and only if $X$ would include
 $\phi$ in the list of sentences that would result if $X$ were commanded,
   \[
@@ -594,7 +594,8 @@ a feel for how this translation works. Then, we will advance to the examples we 
 in the Introduction, and closely related examples.
 
 Although the statements in the following example may seem plausible,
-we do not claim that every AGI must satisfy them. Rather, they serve to classify AGIs:
+our purpose is not to claim that every AGI must satisfy them.
+Rather, they serve to classify AGIs:
 for each axiom schema, one can speak of AGIs who satisfy that axiom schema, and
 of AGIs who do not satisfy it.
 
@@ -604,10 +605,10 @@ of AGIs who do not satisfy it.
   of EA, are taken from Carlson \cite{carlson}
   (we restrict them to sentences for purposes of simplicity).
   \begin{itemize}
-    \item (E1) $K(\phi)$ whenever $\phi$ is valid (i.e., a tautology).
+    \item (E1) $K(\phi)$ whenever $\phi$ is valid (i.e., true in every model).
     Translated for an AGI $X$ using Definition \ref{maindef}, this becomes:
     ``If commanded to enumerate his knowledge in EA, $X$ will include
-    all EA-tautologies in the resulting list.''
+    all valid EA-sentences in the resulting list.''
     \item (E2) $K(\phi\rightarrow\psi)\rightarrow K(\phi)\rightarrow K(\psi)$.
     This becomes: ``If commanded to enumerate his knowledge in EA,
     if $X$ would include $\phi\rightarrow\psi$ and if $X$ would also include
@@ -622,7 +623,7 @@ of AGIs who do not satisfy it.
 \end{example}
 
 Our purpose in Example \ref{basicexamples} is not to declare that an
-AGI should satisfy E1--E4. Rather, our goal is to translate these
+AGI must satisfy E1--E4. Rather, our goal is to translate these
 modal logical axioms into AGI language---note that the translations in quotation
 marks in Example \ref{basicexamples} do not directly depend on
 the AGI's knowledge, but only on the AGI's stimulus-response.
@@ -631,7 +632,7 @@ even E3, the factivity of knowledge, might be questioned (certain AGIs might sat
 it and other AGIs might not). By translating E3 into
 a concrete statement about the AGI's stimulus-response,
 we can talk about ``AGIs who satisfy E3'' or
-``AGIs who fail E3'', without getting stuck on hard questions
+``AGIs who fail E3,'' without getting stuck on hard questions
 like ``What does it mean to know something?''
 
 \begin{example}
@@ -644,9 +645,8 @@ like ``What does it mean to know something?''
     as a formalization of the mechanicalness of the knower. Here, $W_e$
     is the $e$th computably enumerable set of natural numbers\footnote{It can be
     shown that $W_e$ is definable in the language of Peano arithmetic, therefore we
-    can use expressions like ``$x\in W_e$'' in EA-formulas as shorthand. We will
-    use this same convention in later
-    examples without explicit mention.} ($W_e$ can also
+    can use expressions like ``$x\in W_e$'' in EA-formulas as shorthand.}
+    ($W_e$ can also
     be thought of as the set of naturals enumerated by the $e$th Turing machine).
     For simplicity, consider the case where $x$ is the lone free variable
     of $\phi$. Then in terms of Definition \ref{maindefextension}, the schema
@@ -758,9 +758,9 @@ an elegant way to brush these philosophical questions aside. In Definition \ref{
 we declare that an AGI knows an EA-sentence if and
 only if that AGI would enumerate that sentence if commanded:
   \[
-  \text{``Enumerate all the EA-sentences which you know.''}
+  \text{``Enumerate all the EA-sentences which you know''}
   \]
-(This definition might look circular at first glance but we have argued that it is
+(this definition might look circular at first glance but we have argued that it is
 not; see Subsection \ref{noncircularsubsection}).
 In Definition \ref{maindefextension}
 we extended this to formulas with free variables, not just sentences.
